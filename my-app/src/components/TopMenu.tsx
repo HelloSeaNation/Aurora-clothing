@@ -1,4 +1,5 @@
 import { Box } from "@chakra-ui/react";
+import React, { ReactNode } from "react";
 
 const categoryStyles = 
 {display: "grid", 
@@ -8,18 +9,30 @@ paddingLeft: "325px",
 paddingRight: "275px",
 }; 
 
-const textStyles = {fontFamily: "Koulen"};
-
-function TopMenu() {
-    return (
-        <Box style={categoryStyles}>
-            <h1>New</h1>
-            <h1>Clothing</h1>
-            <h1>Accessories</h1>
-            <h1>Swim</h1>
-            <h1>Sale</h1>
-            <h1>Contact us</h1>
-        </Box>
-    );
-}
+const hoverStyles = {
+    cursor: "pointer"
+    };
+  
+    // Define the type for the children prop
+  interface CategoryItemProps {
+    children: ReactNode;
+  }
+  
+  // Individual category item component with hover effect
+  const CategoryItem: React.FC<CategoryItemProps> = ({ children }) => (
+    <Box _hover={hoverStyles}>
+      <h1>{children}</h1>
+    </Box>
+  );
+  
+  const TopMenu = () => (
+    <Box style={categoryStyles}>
+      <CategoryItem>New</CategoryItem>
+      <CategoryItem>Clothing</CategoryItem>
+      <CategoryItem>Accessories</CategoryItem>
+      <CategoryItem>Swim</CategoryItem>
+      <CategoryItem>Sale</CategoryItem>
+      <CategoryItem>Contact us</CategoryItem>
+    </Box>
+  );
 export default TopMenu;
