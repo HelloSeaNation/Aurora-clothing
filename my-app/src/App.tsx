@@ -1,6 +1,7 @@
 import React from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import comfortpic from "comfortpic.png"
 import { Box } from "@chakra-ui/react";
 import TopMenu from "./components/TopMenu";
 
@@ -21,6 +22,7 @@ function App() {
           </Box>
         </Box>
         <TopMenu />
+        <img src="../comfortpic.png" width={"100%"}></img>
         <Box>
           <Routes>
             <Route path="/home"/>
