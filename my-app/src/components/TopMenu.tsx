@@ -1,4 +1,9 @@
-import { Box } from "@chakra-ui/react";
+import 
+{ Box,
+Menu,
+MenuButton,
+MenuList,
+MenuItem} from "@chakra-ui/react";
 import React, { ReactNode } from "react";
 
 const categoryStyles = 
@@ -24,6 +29,8 @@ const hoverStyles = {
       <h1>{children}</h1>
     </Box>
   );
+
+  
   
   const TopMenu = () => (
     <Box style={categoryStyles}>
