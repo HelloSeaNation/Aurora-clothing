@@ -2,7 +2,7 @@ import React from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import comfortpic from "comfortpic.png"
-import { Box } from "@chakra-ui/react";
+import { Box, Center } from "@chakra-ui/react";
 import TopMenu from "./components/TopMenu";
 import { SearchIcon} from "@chakra-ui/icons"
 
@@ -11,7 +11,8 @@ function App() {
   return (
     <>
     <HashRouter basename="/">
-      <Box backgroundColor="#F5F5F5" minHeight={"100vh"}>
+      <Center>
+      <Box backgroundColor="#F5F5F5" minHeight={"100vh"} maxWidth={"1440px"}>
         <Box
           backgroundColor="#E8BCBC"
           minHeight={"5vh"}
@@ -36,6 +37,7 @@ function App() {
           </Routes>
         </Box>
       </Box>
+      </Center>
       </HashRouter>
     </>
   );
