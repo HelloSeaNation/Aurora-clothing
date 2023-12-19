@@ -4,6 +4,8 @@ import "./App.css";
 import comfortpic from "comfortpic.png"
 import { Box } from "@chakra-ui/react";
 import TopMenu from "./components/TopMenu";
+import { SearchIcon} from "@chakra-ui/icons"
+
 
 function App() {
   return (
@@ -17,8 +19,11 @@ function App() {
           justifyContent="center"
           alignItems="center"
         >
-          <Box m={[15]}>
+          <Box m={[15]} display="flex">
             <img src="../aurora.svg" height={"30vh"} />
+            <Box style={{ fontSize: '1.5em' }}>
+              <SearchIcon color="white"/>
+            </Box>
           </Box>
         </Box>
         <TopMenu />
