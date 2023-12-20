@@ -13,9 +13,10 @@ import React, { ReactNode } from "react";
 const categoryStyles = {
   display: "grid",
   gridTemplateColumns: "repeat(6, 1fr)",
-  fontSize: "20px",
+  fontSize: "18px",
   fontFamily: "Koulen",
   justifyItems: "center",
+  margin: "0 15% 0 15%",
 };
 
 const hoverStyles = {
