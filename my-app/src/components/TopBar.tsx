@@ -4,7 +4,7 @@ import { SearchIcon } from "@chakra-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMagnifyingGlass,
-  faCartShopping,
+  faBagShopping,
 } from "@fortawesome/free-solid-svg-icons";
 
 function TopBar() {
@@ -15,18 +15,18 @@ function TopBar() {
       maxWidth={"100%"}
       justifyContent="space-between" // To space the elements
       alignItems="center" // To vertically center the items
-      paddingLeft="80px" // Add padding for some space around elements
+      paddingLeft="15vh" // Add padding for some space around elements
     >
       <Box flex="1" style={{ textAlign: "center" }}>
         <Image src="../aurora.svg" height={"3vh"} margin={"20px"} />
       </Box>
-      <Box style={{ fontSize: "30px" }} paddingRight="20px">
+      <Box style={{ fontSize: "30px" }} paddingRight="40px">
         <FontAwesomeIcon
           icon={faMagnifyingGlass}
           color="#F5F5F5"
-          style={{ paddingRight: "20px" }}
+          style={{ paddingRight: "40px" }}
         />
-        <FontAwesomeIcon icon={faCartShopping} color="#F5F5F5" />
+        <FontAwesomeIcon icon={faBagShopping} color="#F5F5F5" />
       </Box>
     </Flex>
   );
