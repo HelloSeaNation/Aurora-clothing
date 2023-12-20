@@ -33,7 +33,7 @@ const CategoryItem: React.FC<CategoryItemProps> = ({ children }) => (
     <Text _hover={hoverStyles}>{children}</Text>
 );
 
-const TopMenu = () => (
+const NavigationBar = () => (
   <Box style={categoryStyles}>
     <CategoryItem>New</CategoryItem>
     <CategoryItem>Clothing</CategoryItem>
@@ -45,4 +45,4 @@ const TopMenu = () => (
     </Link>
   </Box>
 );
-export default TopMenu;
+export default NavigationBar;
