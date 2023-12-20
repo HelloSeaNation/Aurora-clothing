@@ -13,7 +13,7 @@ function App() {
     <>
     <HashRouter basename="/">
       <Center>
-      <Box backgroundColor="#F5F5F5" minHeight={"100vh"} maxWidth={"1440px"}>
+      <Box backgroundColor="#F5F5F5">
         <Box
           backgroundColor="#E8BCBC"
           minHeight={"5vh"}
