@@ -19,7 +19,7 @@ import {
     border: "1px solid #C3C3C3",
     backgroundColor: "white",
     fontFamily: "Koulen",
-    fontSize: "large"
+    fontSize: "large",
     // borderRadius: '8px', // Add border radius
     // marginBottom: '20px', // Add margin at the bottom for spacing
   }
@@ -40,7 +40,7 @@ function Faqs(){
                         <AccordionIcon />
                     </AccordionButton>
                 </h2>
-                <AccordionPanel>
+                <AccordionPanel pb={4}>
                     Our orders are delivered directly from our warehouse in Auckland.
                     Depending on where you are located, our orders usually take between
                     3-6 business days to ship within New Zealand.
@@ -56,7 +56,7 @@ function Faqs(){
                         <AccordionIcon />
                     </AccordionButton>
                 </h2>
-                <AccordionPanel >
+                <AccordionPanel pb={4}>
                     To make a return or exchange you will need to email our support team
                     with the reason for returns/exchange. This feedback helps us provide 
                     understand areas we can improve on. In order to claim a refund, you can request
