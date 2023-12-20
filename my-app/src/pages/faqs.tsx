@@ -7,13 +7,16 @@ import {
     AccordionIcon,
   } from '@chakra-ui/react'
 
-  const textStyles = {
+  const faqsStyles = {
     fontFamily: "sans-serif",
   };
 
+
+
 function Faqs(){
     return(
-        <Box style={textStyles}>
+        <Box style={faqsStyles}>
+            <h1>Frequently Asked Questions</h1>
           <Accordion defaultIndex={[0]} allowMultiple allowToggle>
             <AccordionItem>
                 <h2>
@@ -59,7 +62,70 @@ function Faqs(){
                     </AccordionButton>
                 </h2>
                 <AccordionPanel pb={4}>
-                    Once your order has been dispatched from our warehouse, our team will not
+                    Once your order has been dispatched from our warehouse, our team will not know
+                    exactly where your order is. 
+                    <br/>
+                    <br/>
+                    Alternatively, you can reach out to NZ post (our postal provider) for any Information
+                    regarding your order!
+                </AccordionPanel>
+            </AccordionItem>
+
+            <AccordionItem>
+                <h2>
+                    <AccordionButton>
+                        <Box as="span" flex="1" textAlign="left">
+                            Can I return items purchased online?
+                        </Box>
+                        <AccordionIcon />
+                    </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                    In short, yes!
+                    <br/>
+                    <br/>
+                    Our returns and exchanges are the same whether an item is purchased
+                    instore or online. Head to our contact page for more information.
+                </AccordionPanel>
+            </AccordionItem>
+
+            <AccordionItem>
+                <h2>
+                    <AccordionButton>
+                        <Box as="span" flex="1" textAlign="left">
+                            Refund Policies
+                        </Box>
+                        <AccordionIcon />
+                    </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                    Here at Aurora, we offer refunds given there is a valid reason for 
+                    refunding the product. Some examples may be:
+                    <br />
+                    Product came damaged
+                    <br />
+                    Unhappy with the quality of the product
+                    <br />
+                    Wrong size purchased or delivered
+                    <br />
+                    <br />
+                    However, if you have a unique reason as to why you'd like a refund,
+                    don't hesitate to contact our team at Aurora and we will help you
+                    the best we can
+                </AccordionPanel>
+            </AccordionItem>
+
+            <AccordionItem>
+                <h2>
+                    <AccordionButton>
+                        <Box as="span" flex="1" textAlign="left">
+                            Vegan/Cruelty free information
+                        </Box>
+                        <AccordionIcon />
+                    </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                    Aurora takes pride in saying all of our product are vegan and cruelty free!
                 </AccordionPanel>
             </AccordionItem>
           </Accordion>
