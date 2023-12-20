@@ -10,22 +10,18 @@ import TopBar from "./components/TopBar";
 function App() {
   return (
     <>
-      <Center>
-        <HashRouter basename="/">
-          <Box backgroundColor="#F5F5F5">
-            <TopBar />
-            <NavigationBar />
-            <Image src="../comfortpic.png" width={"100%"}></Image>
-            <Box>
-              <Routes>
-                <Route path="/home" />
-                <Route path="/about" />
-                <Route path="/faqs" element={<Faqs />} />
-              </Routes>
-            </Box>
-          </Box>
-        </HashRouter>
-      </Center>
+      <HashRouter basename="/">
+        <Box backgroundColor="#F5F5F5">
+          <TopBar />
+          <NavigationBar />
+          <Image src="../comfortpic.png" width={"100%"}></Image>
+          <Routes>
+            <Route path="/home" />
+            <Route path="/about" />
+            <Route path="/faqs" element={<Faqs />} />
+          </Routes>
+        </Box>
+      </HashRouter>
     </>
   );
 }
