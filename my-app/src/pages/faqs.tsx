@@ -5,29 +5,42 @@ import {
     AccordionButton,
     AccordionPanel,
     AccordionIcon,
+    Center,
+    Heading
   } from '@chakra-ui/react'
 
   const faqsStyles = {
-    fontFamily: "sans-serif",
+    fontFamily: "Koulen",
+    maxWidth: "750px",
+    margin: "auto",
   };
 
-
+  const boarderStyles = {
+    border: "1px solid #C3C3C3",
+    backgroundColor: "white",
+    fontFamily: "Koulen",
+    fontSize: "large"
+    // borderRadius: '8px', // Add border radius
+    // marginBottom: '20px', // Add margin at the bottom for spacing
+  }
 
 function Faqs(){
     return(
         <Box style={faqsStyles}>
-            <h1>Frequently Asked Questions</h1>
+            <Box textAlign="center">
+                <h1>Frequently Asked Questions</h1>
+            </Box>
           <Accordion defaultIndex={[0]} allowMultiple allowToggle>
             <AccordionItem>
                 <h2>
-                    <AccordionButton>
+                    <AccordionButton style={boarderStyles}>
                         <Box as="span" flex="1" textAlign="left">
                             Devliery Information
                         </Box>
                         <AccordionIcon />
                     </AccordionButton>
                 </h2>
-                <AccordionPanel pb={4}>
+                <AccordionPanel>
                     Our orders are delivered directly from our warehouse in Auckland.
                     Depending on where you are located, our orders usually take between
                     3-6 business days to ship within New Zealand.
@@ -36,14 +49,14 @@ function Faqs(){
 
             <AccordionItem>
                 <h2>
-                    <AccordionButton>
+                    <AccordionButton style={boarderStyles}>
                         <Box as="span" flex="1" textAlign="left">
                             Returns and Exchanges
                         </Box>
                         <AccordionIcon />
                     </AccordionButton>
                 </h2>
-                <AccordionPanel pb={4}>
+                <AccordionPanel >
                     To make a return or exchange you will need to email our support team
                     with the reason for returns/exchange. This feedback helps us provide 
                     understand areas we can improve on. In order to claim a refund, you can request
@@ -54,7 +67,7 @@ function Faqs(){
 
             <AccordionItem>
                 <h2>
-                    <AccordionButton>
+                    <AccordionButton style={boarderStyles}>
                         <Box as="span" flex="1" textAlign="left">
                             How can I track my delivery?
                         </Box>
@@ -73,7 +86,7 @@ function Faqs(){
 
             <AccordionItem>
                 <h2>
-                    <AccordionButton>
+                    <AccordionButton style={boarderStyles}>
                         <Box as="span" flex="1" textAlign="left">
                             Can I return items purchased online?
                         </Box>
@@ -91,7 +104,7 @@ function Faqs(){
 
             <AccordionItem>
                 <h2>
-                    <AccordionButton>
+                    <AccordionButton style={boarderStyles}>
                         <Box as="span" flex="1" textAlign="left">
                             Refund Policies
                         </Box>
@@ -117,7 +130,7 @@ function Faqs(){
 
             <AccordionItem>
                 <h2>
-                    <AccordionButton>
+                    <AccordionButton style={boarderStyles}> 
                         <Box as="span" flex="1" textAlign="left">
                             Vegan/Cruelty free information
                         </Box>
