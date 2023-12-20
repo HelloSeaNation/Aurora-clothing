@@ -2,6 +2,7 @@ import React from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import comfortpic from "comfortpic.png"
+import Faqs from "./pages/faqs"
 import { Box, Center } from "@chakra-ui/react";
 import TopMenu from "./components/TopMenu";
 import { SearchIcon} from "@chakra-ui/icons"
@@ -33,7 +34,7 @@ function App() {
           <Routes>
             <Route path="/home"/>
             <Route path="/about" />
-            <Route path="/contact" />
+            <Route path="/faqs" element={<Faqs />} />
           </Routes>
         </Box>
       </Box>

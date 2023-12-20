@@ -4,6 +4,7 @@ Menu,
 MenuButton,
 MenuList,
 MenuItem} from "@chakra-ui/react";
+import {Link} from "react-router-dom"
 import React, { ReactNode } from "react";
 
 const categoryStyles = 
@@ -39,7 +40,9 @@ const hoverStyles = {
       <CategoryItem>Accessories</CategoryItem>
       <CategoryItem>Swim</CategoryItem>
       <CategoryItem>Sale</CategoryItem>
-      <CategoryItem>Contact us</CategoryItem>
+      <Link to="./faqs">
+        <CategoryItem>Contact us</CategoryItem>
+      </Link>
     </Box>
   );
 export default TopMenu;
