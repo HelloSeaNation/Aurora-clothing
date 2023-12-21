@@ -4,8 +4,7 @@ import {
     Menu,
     MenuButton,
     MenuList,
-    MenuItem,
-    AccordionIcon
+    MenuItem
 } from '@chakra-ui/react'
 import React, {useState} from 'react'
 import Map from '../components/Map'
@@ -80,7 +79,8 @@ export const ContactUs = () =>{
                 boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
                 borderRadius: "10px",
                 fontFamily: "Koulen",
-                marginTop: "20px"}}>Send</Box>
+                marginTop: "20px",
+                cursor: "pointer"}}>Send</Box>
             </Box>
 
             <Box textAlign="center">
