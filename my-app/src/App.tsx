@@ -6,6 +6,7 @@ import Faqs from "./pages/faqs";
 import { Box, Image, Center } from "@chakra-ui/react";
 import NavigationBar from "./components/NavigationBar";
 import TopBar from "./components/TopBar";
+import Home from "./pages/Home"
 
 function App() {
   return (
@@ -14,9 +15,8 @@ function App() {
         <Box backgroundColor="#F5F5F5">
           <TopBar />
           <NavigationBar />
-          <Image src="../comfortpic.png" width={"100%"}></Image>
           <Routes>
-            <Route path="/home" />
+            <Route path="/" element={<Home />}></Route>
             <Route path="/about" />
             <Route path="/faqs" element={<Faqs />} />
           </Routes>
