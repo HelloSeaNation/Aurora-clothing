@@ -6,9 +6,11 @@ import {
   MenuList,
   MenuItem,
   Flex,
+  useMenuList,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import React, { ReactNode } from "react";
+import React, { ReactNode} from "react";
+
 
 const categoryStyles = {
   display: "grid",
@@ -25,24 +27,42 @@ const hoverStyles = {
 
 // Define the type for the children prop
 interface CategoryItemProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 // Individual category item component with hover effect
 const CategoryItem: React.FC<CategoryItemProps> = ({ children }) => (
-    <Text _hover={hoverStyles}>{children}</Text>
+  <Text _hover={hoverStyles}>{children}</Text>
 );
 
 const NavigationBar = () => (
+
+
   <Box style={categoryStyles}>
     <CategoryItem>New</CategoryItem>
     <CategoryItem>Clothing</CategoryItem>
     <CategoryItem>Accessories</CategoryItem>
     <CategoryItem>Swim</CategoryItem>
     <CategoryItem>Sale</CategoryItem>
-    <Link to="./faqs">
+    <Menu>
+      <MenuButton
+        fontFamily={"Koulen"}
+        fontSize={"18px"}
+        border={"none"}
+        backgroundColor={"transparent"}
+        _hover={hoverStyles}
+      >
+        Contact us
+      </MenuButton>
+      <MenuList>
+        <MenuItem as="a" href="./#/faqs">
+          FAQs
+        </MenuItem>
+      </MenuList>
+    </Menu>
+    {/* <Link to="./faqs">
       <CategoryItem>Contact us</CategoryItem>
-    </Link>
+    </Link> */}
   </Box>
 );
 export default NavigationBar;
