@@ -4,9 +4,7 @@ import {
     AccordionItem,
     AccordionButton,
     AccordionPanel,
-    AccordionIcon,
-    Center,
-    Heading
+    AccordionIcon
   } from '@chakra-ui/react'
 
   const faqsStyles = {
@@ -20,8 +18,6 @@ import {
     backgroundColor: "white",
     fontFamily: "Koulen",
     fontSize: "large",
-    // borderRadius: '8px', // Add border radius
-    // marginBottom: '20px', // Add margin at the bottom for spacing
   }
 
 function Faqs(){
