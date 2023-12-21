@@ -71,7 +71,7 @@ function NavigationBar() {
           <MenuItem as="a" href="./#/faqs" style={MenuItemStyle}>
             FAQs
           </MenuItem>
-          <MenuItem as="a" href="./#/" style={MenuItemStyle}>
+          <MenuItem as="a" href="./#/contact-us" style={MenuItemStyle}>
             Contact us
           </MenuItem>
         </MenuList>
