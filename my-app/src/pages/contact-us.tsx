@@ -30,6 +30,14 @@ export const ContactUs = () =>{
         setSelectedOption(value);
     }
 
+    const MenuButtonStyle = {
+        fontFamily: "Koulen",
+        fontSize: "18px",
+        border:"1px solid #D1D1D1",
+        backgroundColor: "white",
+        cursor: "pointer",
+      };
+
     return(
         <Box style={textStyles}>
             <Box textAlign="center">
@@ -45,16 +53,16 @@ export const ContactUs = () =>{
 
                 <Box as="h3" style={{ textAlign: 'left', marginBottom: 0 }}>Question type</Box>
                 <Menu>
-                    <MenuButton as="button" style={{...inputStyle, backgroundColor: "white", textAlign: 'left'}}>
+                    <MenuButton as="button" style={{...inputStyle, backgroundColor: "white", textAlign: 'left', cursor: "pointer"}}>
                         <Box>{selectedOption}</Box>
                     </MenuButton>
                     
                     <MenuList>
-                        <MenuItem onClick={() => handleMenuClick('My order never arrived')}>My order never arrived</MenuItem>
-                        <MenuItem onClick={() => handleMenuClick('Problem with customer service')}>Problem with customer service</MenuItem>
-                        <MenuItem onClick={() => handleMenuClick('Issue with product quality')}>Issue with product quality</MenuItem>
-                        <MenuItem onClick={() => handleMenuClick('Request refund/exchange')}>Request refund/exchange</MenuItem>
-                        <MenuItem onClick={() => handleMenuClick('Other')}>Other</MenuItem>
+                        <MenuItem style={MenuButtonStyle} onClick={() => handleMenuClick('My order never arrived')}>My order never arrived</MenuItem>
+                        <MenuItem style={MenuButtonStyle} onClick={() => handleMenuClick('Problem with customer service')}>Problem with customer service</MenuItem>
+                        <MenuItem style={MenuButtonStyle} onClick={() => handleMenuClick('Issue with product quality')}>Issue with product quality</MenuItem>
+                        <MenuItem style={MenuButtonStyle} onClick={() => handleMenuClick('Request refund/exchange')}>Request refund/exchange</MenuItem>
+                        <MenuItem style={MenuButtonStyle} onClick={() => handleMenuClick('Other')}>Other</MenuItem>
                     </MenuList>
                     
                 </Menu>
