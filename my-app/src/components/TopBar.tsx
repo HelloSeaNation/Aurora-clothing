@@ -55,7 +55,12 @@ function TopBar() {
             style={{ paddingRight: "30px" }}
             onClick={() => setShowInput(!showInput)}
           />
-          <FontAwesomeIcon icon={faBagShopping} color="#F5F5F5" />
+          <Link to="/shopping-cart">
+          <FontAwesomeIcon
+            icon={faBagShopping}
+            color="#F5F5F5"
+          />
+          </Link>
         </Box>
       </Flex>
 
@@ -79,7 +84,6 @@ function TopBar() {
             style={{
               transition: "width 1s ease-out",
               width: "100%",
-              height: "6.5vh",
               fontSize: "25px",
               border: "none",
               backgroundColor: "#F5F5F5",
@@ -87,7 +91,7 @@ function TopBar() {
               paddingBlock: "0px",
               paddingInline: "0px",
               marginTop: "3px",
-              padding: "0 0 0 70px",
+              padding: "15px 0 15px 70px",
               boxSizing: "border-box",
             }}
           ></Input>
