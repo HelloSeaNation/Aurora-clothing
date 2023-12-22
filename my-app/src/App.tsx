@@ -8,12 +8,13 @@ import NavigationBar from "./components/NavigationBar";
 import TopBar from "./components/TopBar";
 import Home from "./pages/Home"
 import ContactUs from "./pages/contact-us"
+import ShoppingCart from "./pages/shopping-cart"
 
 function App() {
   return (
     <>
       <HashRouter basename="/">
-        <Box backgroundColor="#F5F5F5">
+        <Box backgroundColor="#FFFFFF">
           <TopBar />
           <NavigationBar />
           <Routes>
@@ -21,6 +22,7 @@ function App() {
             <Route path="/about" />
             <Route path="/faqs" element={<Faqs />} />
             <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/shopping-cart" element={<ShoppingCart />} />
           </Routes>
         </Box>
       </HashRouter>
