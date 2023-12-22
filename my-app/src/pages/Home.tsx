@@ -1,13 +1,15 @@
-import {Image} from '@chakra-ui/react'
+import { Image, Box, Text } from "@chakra-ui/react";
 
-export const Home = () =>{
-    return(
-        <div>
-            <Image src="../comfortpic.png" width={"100%"}></Image>
+export const Home = () => {
+  return (
+    <Box h={"100vh"}>
+      <Image src="../comfortpic.png" width={"100%"}></Image>
 
-            <h2>New Releases</h2>
-        </div>
-    )
-}
+      <Text fontFamily={"Khula"} fontWeight={"600"} fontSize={"20px"} margin={"30px"}>
+        New Releases
+      </Text>
+    </Box>
+  );
+};
 
 export default Home;
