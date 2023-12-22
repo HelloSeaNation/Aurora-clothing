@@ -4,7 +4,6 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  Container,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
@@ -24,7 +23,7 @@ const MenuButtonStyle = {
 };
 
 const MenuListStyle = {
-  backgroundColor: "#F5F5F5",
+  backgroundColor: "#FFFFFF",
   width: "15vh",
   marginTop: "-8px",
   padding: "10px 0 5px 10px",
