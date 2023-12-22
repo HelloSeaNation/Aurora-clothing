@@ -4,7 +4,6 @@ import {
   Flex,
   Image,
   Input,
-  InputAddon,
   InputGroup,
   InputLeftElement,
   InputRightElement,
@@ -46,23 +45,28 @@ function TopBar() {
           </Link>
         </Box>
         <Box
-          style={{ fontSize: "30px", cursor: "pointer" }}
+          style={{ fontSize: "18px", cursor: "pointer" }}
           paddingRight="40px"
+          position={"relative"}
         >
           <FontAwesomeIcon
             icon={faMagnifyingGlass}
             color="#F5F5F5"
-            style={{ paddingRight: "40px" }}
+            style={{ paddingRight: "30px" }}
             onClick={() => setShowInput(!showInput)}
           />
           <FontAwesomeIcon icon={faBagShopping} color="#F5F5F5" />
         </Box>
       </Flex>
+
+      {/* This is the input field that appears when the SEARCH Icon is clicked */}
       {showInput && (
         <InputGroup position="relative">
-        <InputLeftElement
+          <InputLeftElement
             pointerEvents="none"
-            children={<FontAwesomeIcon icon={faMagnifyingGlass} color="#afafad" />}
+            children={
+              <FontAwesomeIcon icon={faMagnifyingGlass} color="#afafad" />
+            }
             padding="20px 20px 20px 30px"
             fontSize={"20px"}
           />
@@ -75,7 +79,7 @@ function TopBar() {
             style={{
               transition: "width 1s ease-out",
               width: "100%",
-              height: "4.6vh",
+              height: "6.5vh",
               fontSize: "25px",
               border: "none",
               backgroundColor: "#F5F5F5",
@@ -84,7 +88,7 @@ function TopBar() {
               paddingInline: "0px",
               marginTop: "3px",
               padding: "0 0 0 70px",
-              boxSizing: "border-box", 
+              boxSizing: "border-box",
             }}
           ></Input>
           <InputRightElement
@@ -99,7 +103,7 @@ function TopBar() {
             w={"0px"}
             m={"15px"}
           >
-            <FontAwesomeIcon icon={faXmark}/>
+            <FontAwesomeIcon icon={faXmark} />
           </InputRightElement>
         </InputGroup>
       )}
