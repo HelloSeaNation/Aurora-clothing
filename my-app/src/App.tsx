@@ -9,6 +9,7 @@ import TopBar from "./components/TopBar";
 import Home from "./pages/Home"
 import ContactUs from "./pages/contact-us"
 import ShoppingCart from "./pages/shopping-cart"
+import Dresses from "./pages/DressesPage"
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/about" />
+            <Route path="/dresses" element={<Dresses />}></Route>
             <Route path="/faqs" element={<Faqs />} />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/shopping-cart" element={<ShoppingCart />} />
