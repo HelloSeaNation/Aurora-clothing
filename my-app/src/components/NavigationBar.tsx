@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-} from "@chakra-ui/react";
+import { Box, Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
 
 const categoryStyles = {
   display: "grid",
@@ -54,21 +48,25 @@ function NavigationBar() {
     setIsMenuOpen((prevState) => ({ ...prevState, [menu]: false }));
   };
 
-  
   return (
     <Box style={categoryStyles}>
       <Menu isOpen={isMenuOpen.new} onClose={() => handleMenuClose("new")}>
         <MenuButton style={MenuButtonStyle}>New</MenuButton>
       </Menu>
 
-      <Menu isOpen={isMenuOpen.clothing} >
+      <Menu isOpen={isMenuOpen.clothing}>
         <MenuButton
           style={MenuButtonStyle}
           onMouseEnter={() => handleMenuOpen("clothing")}
+          onMouseLeave={() => handleMenuClose("clothing")}
         >
           Clothing
         </MenuButton>
-        <MenuList onMouseLeave={() => handleMenuClose("clothing")} style={MenuListStyle}>
+        <MenuList
+          onMouseEnter={() => handleMenuOpen("clothing")}
+          onMouseLeave={() => handleMenuClose("clothing")}
+          style={MenuListStyle}
+        >
           <MenuItem as="a" style={MenuItemStyle}>
             Tops
           </MenuItem>
@@ -93,14 +91,22 @@ function NavigationBar() {
         <MenuButton style={MenuButtonStyle}>Sale</MenuButton>
       </Menu>
 
-      <Menu isOpen={isMenuOpen.contact} onClose={() => handleMenuClose("contact")}>
+      <Menu
+        isOpen={isMenuOpen.contact}
+        onClose={() => handleMenuClose("contact")}
+      >
         <MenuButton
           style={MenuButtonStyle}
           onMouseEnter={() => handleMenuOpen("contact")}
+          onMouseLeave={() => handleMenuClose("contact")}
         >
           Contact us
         </MenuButton>
-        <MenuList onMouseLeave={() => handleMenuClose("contact")} style={MenuListStyle}>
+        <MenuList
+          onMouseEnter={() => handleMenuOpen("contact")}
+          onMouseLeave={() => handleMenuClose("contact")}
+          style={MenuListStyle}
+        >
           <MenuItem as="a" href="./#/faqs" style={MenuItemStyle}>
             FAQs
           </MenuItem>
@@ -114,4 +120,3 @@ function NavigationBar() {
 }
 
 export default NavigationBar;
-
