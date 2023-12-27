@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Box,
   Menu,
@@ -5,7 +6,6 @@ import {
   MenuList,
   MenuItem,
 } from "@chakra-ui/react";
-import { useState } from "react";
 
 const categoryStyles = {
   display: "grid",
@@ -37,36 +37,70 @@ const MenuItemStyle = {
 };
 
 function NavigationBar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState({
+    new: false,
+    clothing: false,
+    accessories: false,
+    swim: false,
+    sale: false,
+    contact: false,
+  });
 
-  const handleMenuOpen = () => {
-    setIsMenuOpen(true);
+  const handleMenuOpen = (menu: string) => {
+    setIsMenuOpen((prevState) => ({ ...prevState, [menu]: true }));
   };
 
-  const handleMenuClose = () => {
-    setIsMenuOpen(false);
+  const handleMenuClose = (menu: string) => {
+    setIsMenuOpen((prevState) => ({ ...prevState, [menu]: false }));
   };
 
+  
   return (
     <Box style={categoryStyles}>
-      <Menu isOpen={isMenuOpen} onClose={handleMenuClose}>
+      <Menu isOpen={isMenuOpen.new} onClose={() => handleMenuClose("new")}>
         <MenuButton style={MenuButtonStyle}>New</MenuButton>
-        <MenuButton style={MenuButtonStyle}>Clothing</MenuButton>
-        <MenuButton style={MenuButtonStyle}>Accessories</MenuButton>
-        <MenuButton style={MenuButtonStyle}>Swim</MenuButton>
-        <MenuButton style={MenuButtonStyle}>Sale</MenuButton>
+      </Menu>
+
+      <Menu isOpen={isMenuOpen.clothing} >
         <MenuButton
           style={MenuButtonStyle}
-          onMouseEnter={handleMenuOpen}
-          onMouseLeave={handleMenuClose}
+          onMouseEnter={() => handleMenuOpen("clothing")}
+        >
+          Clothing
+        </MenuButton>
+        <MenuList onMouseLeave={() => handleMenuClose("clothing")} style={MenuListStyle}>
+          <MenuItem as="a" style={MenuItemStyle}>
+            Tops
+          </MenuItem>
+          <MenuItem as="a" style={MenuItemStyle}>
+            Pants
+          </MenuItem>
+          <MenuItem as="a" href="./#/dresses" style={MenuItemStyle}>
+            Dresses
+          </MenuItem>
+        </MenuList>
+      </Menu>
+
+      <Menu isOpen={isMenuOpen.new} onClose={() => handleMenuClose("new")}>
+        <MenuButton style={MenuButtonStyle}>Accessories</MenuButton>
+      </Menu>
+
+      <Menu isOpen={isMenuOpen.new} onClose={() => handleMenuClose("new")}>
+        <MenuButton style={MenuButtonStyle}>Swim</MenuButton>
+      </Menu>
+
+      <Menu isOpen={isMenuOpen.new} onClose={() => handleMenuClose("new")}>
+        <MenuButton style={MenuButtonStyle}>Sale</MenuButton>
+      </Menu>
+
+      <Menu isOpen={isMenuOpen.contact} onClose={() => handleMenuClose("contact")}>
+        <MenuButton
+          style={MenuButtonStyle}
+          onMouseEnter={() => handleMenuOpen("contact")}
         >
           Contact us
         </MenuButton>
-        <MenuList
-          onMouseOver={handleMenuOpen}
-          onMouseLeave={handleMenuClose}
-          style={MenuListStyle}
-        >
+        <MenuList onMouseLeave={() => handleMenuClose("contact")} style={MenuListStyle}>
           <MenuItem as="a" href="./#/faqs" style={MenuItemStyle}>
             FAQs
           </MenuItem>
@@ -80,3 +114,4 @@ function NavigationBar() {
 }
 
 export default NavigationBar;
+
