@@ -1,14 +1,26 @@
 [
     {
         "id": 1,
-        "name": "Blue Dress",
+        "name": "Baby Blue Dress",
         "price": 49.99,
-        "imgUrl": "src/assets/bluedress1"
+        "imgUrl": "src/assets/baby-blue-floral-front"
     },
     {
         "id": 2,
         "name": "Light Brown Floral Dress",
         "price": 39.99,
-        "imgUrl": "src/assets/browndress1"
+        "imgUrl": "src/assets/light-brown-floral-front"
+    },
+    {
+        "id": 3,
+        "name": "Green Tie-Up Dress",
+        "price": 39.99,
+        "imgUrl": "src/assets/green-strap-dress-front"
+    },
+    {
+        "id": 4,
+        "name": "Black Short Sleeve Dress",
+        "price": 25.99,
+        "imgUrl": "src/assets/black-short-sleeve-front"
     }
 ]
