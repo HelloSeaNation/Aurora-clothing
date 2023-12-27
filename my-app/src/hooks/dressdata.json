@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "Blue Dress",
+        "price": 49.99,
+        "imgUrl": "src/assets/bluedress1"
+    },
+    {
+        "id": 2,
+        "name": "Light Brown Floral Dress",
+        "price": 39.99,
+        "imgUrl": "src/assets/browndress1"
+    }
+]
