@@ -47,4 +47,11 @@
         "price": 54.99,
         "imgUrl": "src/assets/red-stripe-dress-front.png"
     }
+    {
+
+    "id": 9,
+    "name": "Long blue Floral Dress",
+    "price": 59.99,
+    "imgUrl": "src/assets/long-blue-floral-front.png"
+    }
 ]

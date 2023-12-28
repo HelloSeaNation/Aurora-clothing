@@ -66,6 +66,7 @@ function NavigationBar() {
           onMouseEnter={() => handleMenuOpen("clothing")}
           onMouseLeave={() => handleMenuClose("clothing")}
           style={MenuListStyle}
+          zIndex={"1"}
         >
           <MenuItem as="a" style={MenuItemStyle}>
             Tops
@@ -106,6 +107,7 @@ function NavigationBar() {
           onMouseEnter={() => handleMenuOpen("contact")}
           onMouseLeave={() => handleMenuClose("contact")}
           style={MenuListStyle}
+          zIndex={"1"}
         >
           <MenuItem as="a" href="./#/faqs" style={MenuItemStyle}>
             FAQs
