@@ -9,6 +9,8 @@ import {
   Box,
 } from "@chakra-ui/react";
 import HoverImage from "../components/HoverImage";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faStar,} from "@fortawesome/free-solid-svg-icons";
 
 const textStyles = {
   fontFamily: "Koulen",
@@ -19,7 +21,12 @@ const cardStyles = {
   fontFamily: "Koulen",
   fontSize: "20px",
   fontWeight: "500",
-  width: "30vh",
+  width: "21vh",
+};
+
+const cardStylesRight ={
+  width: "3vh",
+  paddingLeft: "8px",
 };
 
 const boxStyle = {
@@ -52,9 +59,10 @@ function Pants() {
             <Box style={boxStyle}>
               <Text style={cardStyles}>Drawstring pants</Text>
             </Box>
-            <Flex justifyContent="space-between">
+            <Flex alignItems="center">
               <Text style={cardStyles}>$19.99</Text>
-              <Text style={cardStyles}>Fivestar</Text>
+               <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
+              <Text style={{ ...cardStyles, ...cardStylesRight }}>3.0</Text>
             </Flex>
           </Box>
         </Card>
@@ -69,9 +77,10 @@ function Pants() {
             <Box style={boxStyle}>
               <Text style={cardStyles}>Elastic waist sport pants</Text>
             </Box>
-            <Flex justifyContent="space-between">
+            <Flex alignItems="center">
               <Text style={cardStyles}>$19.99</Text>
-              <Text style={cardStyles}>Fivestar</Text>
+               <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
+              <Text style={{ ...cardStyles, ...cardStylesRight }}>3.0</Text>
             </Flex>
           </Box>
         </Card>
@@ -86,9 +95,10 @@ function Pants() {
             <Box style={boxStyle}>
               <Text style={cardStyles}>Graphic Wide pants</Text>
             </Box>
-            <Flex justifyContent="space-between">
+            <Flex alignItems="center">
               <Text style={cardStyles}>$17.99</Text>
-              <Text style={cardStyles}>Fivestar</Text>
+               <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
+              <Text style={{ ...cardStyles, ...cardStylesRight }}>3.0</Text>
             </Flex>
           </Box>
         </Card>
@@ -103,9 +113,10 @@ function Pants() {
             <Box style={boxStyle}>
               <Text style={cardStyles}>Hip-hop cargo pants</Text>
             </Box>
-            <Flex justifyContent="space-between">
+            <Flex alignItems="center">
               <Text style={cardStyles}>$19.99</Text>
-              <Text style={cardStyles}>Fivestar</Text>
+               <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
+              <Text style={{ ...cardStyles, ...cardStylesRight }}>3.0</Text>
             </Flex>
           </Box>
         </Card>
@@ -119,9 +130,10 @@ function Pants() {
             <Box style={boxStyle}>
               <Text style={cardStyles}>Plaid paint pants</Text>
             </Box>
-            <Flex justifyContent="space-between">
+            <Flex alignItems="center">
               <Text style={cardStyles}>$15.99</Text>
-              <Text style={cardStyles}>Fivestar</Text>
+               <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
+              <Text style={{ ...cardStyles, ...cardStylesRight }}>3.0</Text>
             </Flex>
           </Box>
         </Card>
@@ -136,9 +148,10 @@ function Pants() {
             <Box style={boxStyle}>
               <Text style={cardStyles}>Solid color pants</Text>
             </Box>
-            <Flex justifyContent="space-between">
+            <Flex alignItems="center">
               <Text style={cardStyles}>$14.99</Text>
-              <Text style={cardStyles}>Fivestar</Text>
+               <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
+              <Text style={{ ...cardStyles, ...cardStylesRight }}>3.0</Text>
             </Flex>
           </Box>
         </Card>
@@ -153,9 +166,10 @@ function Pants() {
             <Box style={boxStyle}>
               <Text style={cardStyles}>Sporty Elastic pants</Text>
             </Box>
-            <Flex justifyContent="space-between">
+            <Flex alignItems="center">
               <Text style={cardStyles}>$20.99</Text>
-              <Text style={cardStyles}>Fivestar</Text>
+               <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
+              <Text style={{ ...cardStyles, ...cardStylesRight }}>3.0</Text>
             </Flex>
           </Box>
         </Card>
@@ -169,9 +183,10 @@ function Pants() {
             <Box style={boxStyle}>
               <Text style={cardStyles}>Two-tone-pants</Text>
             </Box>
-            <Flex justifyContent="space-between">
+            <Flex alignItems="center">
               <Text style={cardStyles}>$23.99</Text>
-              <Text style={cardStyles}>Fivestar</Text>
+               <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
+              <Text style={{ ...cardStyles, ...cardStylesRight }}>3.0</Text>
             </Flex>
           </Box>
         </Card>
