@@ -28,7 +28,7 @@ const boxStyle = {
   marginTop: "-25px",
 };
 
-function Dresses() {
+function Pants() {
   return (
     <>
       <Text
@@ -38,22 +38,22 @@ function Dresses() {
         width={"80%"}
         style={textStyles}
       >
-        Dresses
+        Pants
       </Text>
       <SimpleGrid spacingY={60} columns={4} width={"85%"} margin={"auto"}>
         <Card style={cardStyles}>
           <Box style={{ display: "flex", flexDirection: "column" }}>
             <CardBody>
               <HoverImage
-                defaultImage="./assets/baby-blue-floral-front.png"
-                hoverImage="./assets/baby-blue-floral-back.png"
+                defaultImage="./assets/drawstring-front.png"
+                hoverImage="./assets/drawstring-back.png"
               />
             </CardBody>
             <Box style={boxStyle}>
-              <Text style={cardStyles}>Baby Blue Floral Dress</Text>
+              <Text style={cardStyles}>Drawstring pants</Text>
             </Box>
             <Flex justifyContent="space-between">
-              <Text style={cardStyles}>$49.99</Text>
+              <Text style={cardStyles}>$19.99</Text>
               <Text style={cardStyles}>Fivestar</Text>
             </Flex>
           </Box>
@@ -62,15 +62,15 @@ function Dresses() {
           <Box style={{ display: "flex", flexDirection: "column" }}>
             <CardBody>
               <HoverImage
-                defaultImage="./assets/black-short-sleeve-front.png"
-                hoverImage="./assets/black-short-sleeve-back.png"
+                defaultImage="./assets/elastic-waist-front.png"
+                hoverImage="./assets/elastic-waist-back.png"
               />
             </CardBody>
             <Box style={boxStyle}>
-              <Text style={cardStyles}>Black short sleeve</Text>
+              <Text style={cardStyles}>Elastic waist sport pants</Text>
             </Box>
             <Flex justifyContent="space-between">
-              <Text style={cardStyles}>$25.99</Text>
+              <Text style={cardStyles}>$19.99</Text>
               <Text style={cardStyles}>Fivestar</Text>
             </Flex>
           </Box>
@@ -79,15 +79,15 @@ function Dresses() {
           <Box style={{ display: "flex", flexDirection: "column" }}>
             <CardBody>
               <HoverImage
-                defaultImage="./assets/dark-blue-short-front.png"
-                hoverImage="./assets/dark-blue-short-back.png"
+                defaultImage="./assets/graphic-wide-front.png"
+                hoverImage="./assets/graphic-wide-back.png"
               />
             </CardBody>
             <Box style={boxStyle}>
-              <Text style={cardStyles}>dark blue short dress</Text>
+              <Text style={cardStyles}>Graphic Wide pants</Text>
             </Box>
             <Flex justifyContent="space-between">
-              <Text style={cardStyles}>$48.99</Text>
+              <Text style={cardStyles}>$17.99</Text>
               <Text style={cardStyles}>Fivestar</Text>
             </Flex>
           </Box>
@@ -96,15 +96,15 @@ function Dresses() {
           <Box style={{ display: "flex", flexDirection: "column" }}>
             <CardBody>
               <HoverImage
-                defaultImage="./assets/green-strap-front.png"
-                hoverImage="./assets/green-strap-back.png"
+                defaultImage="./assets/hip-hop-cargo-front.png"
+                hoverImage="./assets/hip-hop-cargo-back.png"
               />
             </CardBody>
             <Box style={boxStyle}>
-              <Text style={cardStyles}>Green Strap dress</Text>
+              <Text style={cardStyles}>Hip-hop cargo pants</Text>
             </Box>
             <Flex justifyContent="space-between">
-              <Text style={cardStyles}>$39.99</Text>
+              <Text style={cardStyles}>$19.99</Text>
               <Text style={cardStyles}>Fivestar</Text>
             </Flex>
           </Box>
@@ -113,14 +113,14 @@ function Dresses() {
           <Box style={{ display: "flex", flexDirection: "column" }}>
             <CardBody>
               <HoverImage 
-              defaultImage="./assets/leopard-dress-front.png" 
-              hoverImage="./assets/leopard-dress-back.png" />
+              defaultImage="./assets/plaid-paint-front.png" 
+              hoverImage="./assets/plaid-paint-back.png" />
             </CardBody>
             <Box style={boxStyle}>
-              <Text style={cardStyles}>leopard pattern dress</Text>
+              <Text style={cardStyles}>Plaid paint pants</Text>
             </Box>
             <Flex justifyContent="space-between">
-              <Text style={cardStyles}>$55.99</Text>
+              <Text style={cardStyles}>$15.99</Text>
               <Text style={cardStyles}>Fivestar</Text>
             </Flex>
           </Box>
@@ -129,15 +129,15 @@ function Dresses() {
           <Box style={{ display: "flex", flexDirection: "column" }}>
             <CardBody>
               <HoverImage
-               defaultImage="./assets/light-brown-floral-front.png"
-               hoverImage="./assets/light-brown-floral-back.png"
+               defaultImage="./assets/solid-color-front.png"
+               hoverImage="./assets/solid-color-back.png"
               />
             </CardBody>
             <Box style={boxStyle}>
-              <Text style={cardStyles}>Light brown floral dress</Text>
+              <Text style={cardStyles}>Solid color pants</Text>
             </Box>
             <Flex justifyContent="space-between">
-              <Text style={cardStyles}>$39.99</Text>
+              <Text style={cardStyles}>$14.99</Text>
               <Text style={cardStyles}>Fivestar</Text>
             </Flex>
           </Box>
@@ -146,15 +146,15 @@ function Dresses() {
           <Box style={{ display: "flex", flexDirection: "column" }}>
             <CardBody>
               <HoverImage
-                defaultImage="./assets/long-blue-floral-front.png"
-                hoverImage="./assets/long-blue-floral-back.png"
+                defaultImage="./assets/sporty-elastic-front.png"
+                hoverImage="./assets/sporty-elastic-back.png"
               />
             </CardBody>
             <Box style={boxStyle}>
-              <Text style={cardStyles}>Long Blue floral dress</Text>
+              <Text style={cardStyles}>Sporty Elastic pants</Text>
             </Box>
             <Flex justifyContent="space-between">
-              <Text style={cardStyles}>$59.99</Text>
+              <Text style={cardStyles}>$20.99</Text>
               <Text style={cardStyles}>Fivestar</Text>
             </Flex>
           </Box>
@@ -163,31 +163,14 @@ function Dresses() {
           <Box style={{ display: "flex", flexDirection: "column" }}>
             <CardBody>
               <HoverImage 
-              defaultImage="./assets/orange-dress-front.png" 
-              hoverImage="./assets/orange-dress-back.png"/>
+              defaultImage="./assets/two-tone-front.png" 
+              hoverImage="./assets/two-tone-back.png"/>
             </CardBody>
             <Box style={boxStyle}>
-              <Text style={cardStyles}>Orange dress</Text>
+              <Text style={cardStyles}>Two-tone-pants</Text>
             </Box>
             <Flex justifyContent="space-between">
-              <Text style={cardStyles}>$43.99</Text>
-              <Text style={cardStyles}>Fivestar</Text>
-            </Flex>
-          </Box>
-        </Card>
-        <Card style={cardStyles}>
-          <Box style={{ display: "flex", flexDirection: "column" }}>
-            <CardBody>
-              <HoverImage
-                defaultImage="./assets/red-stripe-dress-front.png"
-                hoverImage="./assets/red-stripe-dress-back.png"
-              />
-            </CardBody>
-            <Box style={boxStyle}>
-              <Text style={cardStyles}>Red-stripe dress</Text>
-            </Box>
-            <Flex justifyContent="space-between">
-              <Text style={cardStyles}>$54.99</Text>
+              <Text style={cardStyles}>$23.99</Text>
               <Text style={cardStyles}>Fivestar</Text>
             </Flex>
           </Box>
@@ -197,4 +180,4 @@ function Dresses() {
   );
 }
 
-export default Dresses;
+export default Pants;
