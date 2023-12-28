@@ -71,7 +71,7 @@ function NavigationBar() {
           <MenuItem as="a" style={MenuItemStyle}>
             Tops
           </MenuItem>
-          <MenuItem as="a" style={MenuItemStyle}>
+          <MenuItem as="a" href="./#/pants" style={MenuItemStyle}>
             Pants
           </MenuItem>
           <MenuItem as="a" href="./#/dresses" style={MenuItemStyle}>
