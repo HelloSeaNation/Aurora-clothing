@@ -3,55 +3,55 @@
         "id": 1,
         "name": "Baby Blue Dress",
         "price": 49.99,
-        "imgUrl": "src/assets/baby-blue-floral-front.png"
+        "imgUrl": "./public/assets/baby-blue-floral-front.png"
     },
     {
         "id": 2,
         "name": "Light Brown Floral Dress",
         "price": 39.99,
-        "imgUrl": "src/assets/light-brown-floral-front.png"
+        "imgUrl": "./public/assets/light-brown-floral-front.png"
     },
     {
         "id": 3,
         "name": "Green Tie-Up Dress",
         "price": 39.99,
-        "imgUrl": "src/assets/green-strap-dress-front.png"
+        "imgUrl": "./public/assets/green-strap-dress-front.png"
     },
     {
         "id": 4,
         "name": "Black Short Sleeve Dress",
         "price": 25.99,
-        "imgUrl": "src/assets/black-short-sleeve-front.png"
+        "imgUrl": "./public/assets/black-short-sleeve-front.png"
     },
     {
         "id": 5,
         "name": "Short Dark Blue Dress",
         "price": 48.99,
-        "imgUrl": "src/assets/dark-blue-short-front.png"
+        "imgUrl": "./public/assets/dark-blue-short-front.png"
     },
     {
         "id": 6,
         "name": "Leopard Print Dress",
         "price": 55.99,
-        "imgUrl": "src/assets/leopard-dress-front.png"
+        "imgUrl": "./public/assets/leopard-dress-front.png"
     },
     {
         "id": 7,
         "name": "Orange Dress",
         "price": 44.99,
-        "imgUrl": "src/assets/orange-dress.png"
+        "imgUrl": "./public/assets/orange-dress.png"
     },
     {
         "id": 8,
         "name": "Red Stripe Dress",
         "price": 54.99,
-        "imgUrl": "src/assets/red-stripe-dress-front.png"
+        "imgUrl": "./public/assets/red-stripe-dress-front.png"
     }
     {
 
     "id": 9,
     "name": "Long blue Floral Dress",
     "price": 59.99,
-    "imgUrl": "src/assets/long-blue-floral-front.png"
+    "imgUrl": "./public/assets/long-blue-floral-front.png"
     }
 ]
