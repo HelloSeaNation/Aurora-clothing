@@ -1,0 +1,64 @@
+[
+    {
+        "id": "1",	
+        "name": "Drawstring pants",
+        "price": "19.99",
+        "imgUrl": "./public/assets/drawstring-front.png"
+    },
+
+    {
+        "id": "2",
+        "name": "Elastic waist sport pants",
+        "price": "19.99",
+        "imgUrl": "./public/assets/elastic-waist-front.png"
+    },
+
+    {
+        "id": "3",
+        "name": "Graphic wide pants",
+        "price": "17.99",
+        "imgUrl": "./public/assets/graphic-wide-front.png"
+    },
+
+    {
+        "id": "4",
+        "name": "Hip hop cargo pants",
+        "price": "19.99",
+        "imgUrl": "./public/assets/hip-hop-cargo-front.png"
+    },
+
+    {
+        "id": "5",
+        "name": "Plaid paint pants",
+        "price": "15.99",
+        "imgUrl": "./public/assets/plaid-paint-front.png"
+    },
+
+    {
+        "id": "6",  
+        "name": "Solid color pants",
+        "price": "14.99",
+        "imgUrl": "./public/assets/solid-color-front.png"
+    },
+
+    {
+        "id": "7",
+        "name": "Sporty elastic pants",
+        "price": "20.99",
+        "imgUrl": "./public/assets/sporty-elastic-front.png"
+    },
+
+    {
+        "id": "8",
+        "name": "Striped pants",
+        "price": "19.99",
+        "imgUrl": "./public/assets/striped-front.png"
+    },
+
+    {
+        "id": "9",
+        "name": "Two tone pants",
+        "price": "23.99",
+        "imgUrl": "./public/assets/two-tone-front.png"
+    }
+]
