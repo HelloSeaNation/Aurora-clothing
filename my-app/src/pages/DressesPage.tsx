@@ -2,7 +2,6 @@ import React from "react";
 import {
   Text,
   Card,
-  Image,
   CardBody,
   SimpleGrid,
   Flex,
@@ -21,7 +20,7 @@ const textStyles = {
 
 const cardStyles = {
   fontFamily: "Koulen",
-  fontSize: "20px",
+  fontSize: "18px",
   fontWeight: "500",
   width: "21vh",
 };
@@ -33,7 +32,7 @@ const cardStylesRight ={
 
 const boxStyle = {
   flexGrow: 1,
-  marginBottom: "-50px",
+  marginBottom: "-40px",
   marginTop: "-25px",
 };
 

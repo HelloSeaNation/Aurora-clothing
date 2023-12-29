@@ -11,6 +11,8 @@ import {
 import HoverImage from "../components/HoverImage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faStar,} from "@fortawesome/free-solid-svg-icons";
+import pants from "../hooks/pants-data.json"
+import { Link } from "react-router-dom";
 
 const textStyles = {
   fontFamily: "Koulen",
@@ -19,7 +21,7 @@ const textStyles = {
 
 const cardStyles = {
   fontFamily: "Koulen",
-  fontSize: "20px",
+  fontSize: "18px",
   fontWeight: "500",
   width: "21vh",
 };
@@ -31,7 +33,7 @@ const cardStylesRight ={
 
 const boxStyle = {
   flexGrow: 1,
-  marginBottom: "-50px",
+  marginBottom: "-40px",
   marginTop: "-25px",
 };
 
@@ -48,148 +50,30 @@ function Pants() {
         Pants
       </Text>
       <SimpleGrid spacingY={60} columns={4} width={"85%"} margin={"auto"}>
-        <Card style={cardStyles}>
-          <Box style={{ display: "flex", flexDirection: "column" }}>
-            <CardBody>
-              <HoverImage
-                defaultImage="./assets/drawstring-front.png"
-                hoverImage="./assets/drawstring-back.png"
-              />
-            </CardBody>
-            <Box style={boxStyle}>
-              <Text style={cardStyles}>Drawstring pants</Text>
-            </Box>
-            <Flex alignItems="center">
-              <Text style={cardStyles}>$19.99</Text>
-               <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
-              <Text style={{ ...cardStyles, ...cardStylesRight }}>3.0</Text>
-            </Flex>
-          </Box>
-        </Card>
-        <Card style={cardStyles}>
-          <Box style={{ display: "flex", flexDirection: "column" }}>
-            <CardBody>
-              <HoverImage
-                defaultImage="./assets/elastic-waist-front.png"
-                hoverImage="./assets/elastic-waist-back.png"
-              />
-            </CardBody>
-            <Box style={boxStyle}>
-              <Text style={cardStyles}>Elastic waist sport pants</Text>
-            </Box>
-            <Flex alignItems="center">
-              <Text style={cardStyles}>$19.99</Text>
-               <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
-              <Text style={{ ...cardStyles, ...cardStylesRight }}>3.0</Text>
-            </Flex>
-          </Box>
-        </Card>
-        <Card style={cardStyles}>
-          <Box style={{ display: "flex", flexDirection: "column" }}>
-            <CardBody>
-              <HoverImage
-                defaultImage="./assets/graphic-wide-front.png"
-                hoverImage="./assets/graphic-wide-back.png"
-              />
-            </CardBody>
-            <Box style={boxStyle}>
-              <Text style={cardStyles}>Graphic Wide pants</Text>
-            </Box>
-            <Flex alignItems="center">
-              <Text style={cardStyles}>$17.99</Text>
-               <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
-              <Text style={{ ...cardStyles, ...cardStylesRight }}>3.0</Text>
-            </Flex>
-          </Box>
-        </Card>
-        <Card style={cardStyles}>
-          <Box style={{ display: "flex", flexDirection: "column" }}>
-            <CardBody>
-              <HoverImage
-                defaultImage="./assets/hip-hop-cargo-front.png"
-                hoverImage="./assets/hip-hop-cargo-back.png"
-              />
-            </CardBody>
-            <Box style={boxStyle}>
-              <Text style={cardStyles}>Hip-hop cargo pants</Text>
-            </Box>
-            <Flex alignItems="center">
-              <Text style={cardStyles}>$19.99</Text>
-               <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
-              <Text style={{ ...cardStyles, ...cardStylesRight }}>3.0</Text>
-            </Flex>
-          </Box>
-        </Card>
-        <Card style={cardStyles}>
-          <Box style={{ display: "flex", flexDirection: "column" }}>
-            <CardBody>
-              <HoverImage 
-              defaultImage="./assets/plaid-paint-front.png" 
-              hoverImage="./assets/plaid-paint-back.png" />
-            </CardBody>
-            <Box style={boxStyle}>
-              <Text style={cardStyles}>Plaid paint pants</Text>
-            </Box>
-            <Flex alignItems="center">
-              <Text style={cardStyles}>$15.99</Text>
-               <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
-              <Text style={{ ...cardStyles, ...cardStylesRight }}>3.0</Text>
-            </Flex>
-          </Box>
-        </Card>
-        <Card style={cardStyles}>
-          <Box style={{ display: "flex", flexDirection: "column" }}>
-            <CardBody>
-              <HoverImage
-               defaultImage="./assets/solid-color-front.png"
-               hoverImage="./assets/solid-color-back.png"
-              />
-            </CardBody>
-            <Box style={boxStyle}>
-              <Text style={cardStyles}>Solid color pants</Text>
-            </Box>
-            <Flex alignItems="center">
-              <Text style={cardStyles}>$14.99</Text>
-               <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
-              <Text style={{ ...cardStyles, ...cardStylesRight }}>3.0</Text>
-            </Flex>
-          </Box>
-        </Card>
-        <Card style={cardStyles}>
-          <Box style={{ display: "flex", flexDirection: "column" }}>
-            <CardBody>
-              <HoverImage
-                defaultImage="./assets/sporty-elastic-front.png"
-                hoverImage="./assets/sporty-elastic-back.png"
-              />
-            </CardBody>
-            <Box style={boxStyle}>
-              <Text style={cardStyles}>Sporty Elastic pants</Text>
-            </Box>
-            <Flex alignItems="center">
-              <Text style={cardStyles}>$20.99</Text>
-               <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
-              <Text style={{ ...cardStyles, ...cardStylesRight }}>3.0</Text>
-            </Flex>
-          </Box>
-        </Card>
-        <Card style={cardStyles}>
-          <Box style={{ display: "flex", flexDirection: "column" }}>
-            <CardBody>
-              <HoverImage 
-              defaultImage="./assets/two-tone-front.png" 
-              hoverImage="./assets/two-tone-back.png"/>
-            </CardBody>
-            <Box style={boxStyle}>
-              <Text style={cardStyles}>Two-tone-pants</Text>
-            </Box>
-            <Flex alignItems="center">
-              <Text style={cardStyles}>$23.99</Text>
-               <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
-              <Text style={{ ...cardStyles, ...cardStylesRight }}>3.0</Text>
-            </Flex>
-          </Box>
-        </Card>
+        {pants.map((pant) => (
+          <Link key={pant.id}
+          to={`/pants/${pant.id}`} // Use the item ID as part of the URL
+          style={{ textDecoration: "none" }}>   
+            <Card key={pant.id} style={cardStyles}>
+              <Box style={{ display: "flex", flexDirection: "column" }}>
+                <CardBody>
+                  <HoverImage
+                    defaultImage={pant.imgUrl}
+                    hoverImage={pant.hoverImage}
+                  />
+                </CardBody>
+                <Box style={boxStyle}>
+                  <Text style={cardStyles}>{pant.name}</Text>
+                </Box>
+                <Flex alignItems="center">
+                  <Text style={cardStyles}>${pant.price}</Text>
+                  <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
+                  <Text style={{ ...cardStyles, ...cardStylesRight }}>4.0</Text>
+                </Flex>
+              </Box>
+            </Card>
+            </Link>
+        ))}
       </SimpleGrid>
     </>
   );
