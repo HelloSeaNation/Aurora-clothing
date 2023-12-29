@@ -1,31 +1,26 @@
-import React from "react"
-import { Box,
-Text,
-Image } from "@chakra-ui/react"
-import dresses from "../hooks/dressdata.json"
+import dresses from "../hooks/dressdata.json";
+import React from "react";
+import { useParams } from "react-router-dom";
 
-interface itemPageProps {
-    id: number;
-    name: string;
-    price: number;
-    imgUrl: string;
-    hoverUrl: string;
+interface RouteParams {
+  itemId: string;
 }
 
-const titleStyles = {
-    fontFamily: "Koulen",
+const IndividualItem: React.FC = () => {
+  const { itemId } = useParams() as { itemId: string };
 
-}
+  if (!itemId) {
+    // Error handle
+    return <div>Item ID not found</div>;
+  }
 
-const textStyles = {
-    fontFamily: "Koulen",
 
-}
-
-const IndividualItem: React.FC<itemPageProps> = ({id, name, price, imgUrl, hoverUrl}: itemPageProps) => {
-    return(
-        <></>
-    )
-}
+  return (
+    <div>
+      <h1>Item ID: {itemId}</h1>
+      {/* Add other details as needed */}
+    </div>
+  );
+};
 
 export default IndividualItem;

@@ -11,8 +11,8 @@ import {
 import HoverImage from "../components/HoverImage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faStar,} from "@fortawesome/free-solid-svg-icons";
-// import IndividualItem from "./individualItem";
 import dresses from "../hooks/dressdata.json"
+import { Link } from "react-router-dom";
 
 const textStyles = {
   fontFamily: "Koulen",
@@ -51,6 +51,9 @@ function Dresses() {
       </Text>
       <SimpleGrid spacingY={60} columns={4} width={"85%"} margin={"auto"}>
         {dresses.map((dress) => (
+        <Link key={dress.id}
+        to={`/dresses/${dress.id}`} // Use the item ID as part of the URL
+        style={{ textDecoration: "none" }}>   
           <Card key={dress.id} style={cardStyles}>
             <Box style={{ display: "flex", flexDirection: "column" }}>
               <CardBody>
@@ -69,6 +72,7 @@ function Dresses() {
               </Flex>
             </Box>
           </Card>
+          </Link> 
         ))}
       </SimpleGrid>
     </>
