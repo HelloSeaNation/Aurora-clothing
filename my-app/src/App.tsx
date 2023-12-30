@@ -10,6 +10,7 @@ import ContactUs from "./pages/contact-us"
 import ShoppingCart from "./pages/shopping-cart"
 import Dresses from "./pages/DressesPage"
 import Pants from "./pages/PantsPage";
+import Tops from "./pages/TopsPage";
 import IndividualItem from "./pages/individualItem";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path="/about" />
             <Route path="/dresses" element={<Dresses />}></Route>
             <Route path="/pants" element={<Pants />}></Route>
+            <Route path="/tops" element={<Tops />}></Route> 
             <Route path="/dresses/:itemId" element={<IndividualItem />}></Route>
             <Route path="/pants/:itemId" element={<IndividualItem />}></Route>
             {/* <Route path="/tops/:itemId" element={<IndividualItem />}></Route> */}
