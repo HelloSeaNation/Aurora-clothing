@@ -68,7 +68,7 @@ function NavigationBar() {
           style={MenuListStyle}
           zIndex={"1"}
         >
-          <MenuItem as="a" style={MenuItemStyle}>
+          <MenuItem as="a" href="./#/tops" style={MenuItemStyle}>
             Tops
           </MenuItem>
           <MenuItem as="a" href="./#/pants" style={MenuItemStyle}>
