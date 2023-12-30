@@ -14,6 +14,7 @@ export const Home = () => {
         New Releases
       </Text>
     </Box>
+    
   );
 };
 
