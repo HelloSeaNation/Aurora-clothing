@@ -51,7 +51,7 @@ function Dresses() {
       <SimpleGrid spacingY={60} columns={4} width={"85%"} margin={"auto"}>
         {dresses.map((dress) => (
         <Link key={dress.id}
-        to={`/dresses/${dress.id}`} // Use the item ID as part of the URL
+        to={`/${dress.id}`} // Use the item ID as part of the URL
         style={{ textDecoration: "none" }}>   
           <Card key={dress.id} style={cardStyles}>
             <Box style={{ display: "flex", flexDirection: "column" }}>

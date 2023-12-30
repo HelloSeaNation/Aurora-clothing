@@ -1,6 +1,6 @@
 import dresses from "../hooks/dressdata.json";
 import pant from "../hooks/pants-data.json";
-// import top from "../hooks/top-data.json";
+import top from "../hooks/top-data.json";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Box,
@@ -58,16 +58,16 @@ const sizeButtons = {
 const findItemById = (itemId: string): Item | undefined => {
   const dressItem = dresses.find((item) => item.id.toString() === itemId);
   const pantItem = pant.find((item) => item.id.toString() === itemId);
-//   const topItem = top.find((item) => item.id.toString() === itemId);
+  const topItem = top.find((item) => item.id.toString() === itemId);
 
   if (dressItem) {
     return dressItem;
   } else if (pantItem) {
     return pantItem;
   } 
-//   else if (topItem){
-//     return topItem;
-//   }
+  else if (topItem){
+    return topItem;
+  }
 
   return undefined;
 };
