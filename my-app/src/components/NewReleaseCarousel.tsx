@@ -22,23 +22,28 @@ const NewReleaseCarousel = ({ clothingData }: { clothingData: Product[] }) => {
   const renderGroups = () => {
     return [...Array(groupCount)].map((_, groupIndex) => (
       <div key={groupIndex}>
-                   
         <Flex key={groupIndex} justifyContent="space-between">
           {products
             .slice(groupIndex * 4, (groupIndex + 1) * 4)
-            .map((product, index) => (     <Link key={index} to={`/${product.id}`}>
-              <Box key={index} flexBasis={"25%"} padding={"5px 20px 50px 20px"}>
-
-                  <Image
-                    key={index}
-                    src={product.imgUrl}
-                    alt={product.name}
-                    style={{ width: "100%", cursor: "pointer", height: "auto" }}
-                  />    
-              </Box> </Link>
+            .map((product, index) => (
+              <Box key={index} flexBasis={"25%"}>
+                <Link key={index} to={`/${product.id}`}>
+                  <Box padding={"5px 20px 50px 20px"}>
+                    <Image
+                      key={index}
+                      src={product.imgUrl}
+                      alt={product.name}
+                      style={{
+                        width: "100%",
+                        cursor: "pointer",
+                        height: "auto",
+                      }}
+                    />
+                  </Box>{" "}
+                </Link>
+              </Box>
             ))}
         </Flex>
-   
       </div>
     ));
   };
@@ -52,7 +57,7 @@ const NewReleaseCarousel = ({ clothingData }: { clothingData: Product[] }) => {
       showThumbs={false}
       selectedItem={0}
       autoPlay={true}
-      emulateTouch={true} // For smoother touch interaction
+      emulateTouch={true}
       interval={3000}
       transitionTime={2000}
     >
