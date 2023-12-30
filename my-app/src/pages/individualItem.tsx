@@ -14,7 +14,6 @@ useDisclosure,
 ModalContent,
 Text
  } from "@chakra-ui/react"
-
  import { ChevronRightIcon } from '@chakra-ui/icons'
 
 interface Item {
@@ -53,8 +52,8 @@ const sizeButtons = {
     borderColor: "#767676",
     cursor: "pointer",
     width: 33,
-
 }
+
 
 const findItemById = (itemId: string): Item | undefined => {
   const dressItem = dresses.find((item) => item.id.toString() === itemId);
@@ -79,6 +78,9 @@ const IndividualItem: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const { isOpen, onOpen, onClose } = useDisclosure()
+
+//   const [selectedSize, setSelectedSize] = useState<string | null>(null);
+
 
   if (!itemId) {
     // Error handle
@@ -121,11 +123,31 @@ const IndividualItem: React.FC = () => {
 
                 {/* Size options */}
                 <Box display="flex" flex-direction="row" justify-content="space-between" gap="15" paddingBottom="10px">
-                    <Button style={sizeButtons}>XS</Button>
-                    <Button style={sizeButtons}>S</Button>
-                    <Button style={sizeButtons}>M</Button>
-                    <Button style={sizeButtons}>L</Button>
-                    <Button style={sizeButtons}>XL</Button>
+                    <Button style={sizeButtons}
+                    //  onClick={() => setSelectedSize("XS")}
+                    //  isSelected={selectedSize === "XS"}
+                     >XS
+                     </Button>
+                    <Button style={sizeButtons}
+                    //  onClick={() => setSelectedSize("S")}
+                    //  isSelected={selectedSize === "S"}
+                     >S
+                     </Button>
+                    <Button style={sizeButtons}
+                    //  onClick={() => setSelectedSize("<M>")}
+                    //  isSelected={selectedSize === "M"}
+                     >M
+                     </Button>
+                    <Button style={sizeButtons}
+                    //  onClick={() => setSelectedSize("L")}
+                    //  isSelected={selectedSize === "L"}
+                     >L
+                     </Button>
+                    <Button style={sizeButtons}
+                    //  onClick={() => setSelectedSize("XL")}
+                    //  isSelected={selectedSize === "XL"}
+                     >XL
+                     </Button>
                 </Box>
 
                 {/* Size Guide button with modal */}
@@ -171,6 +193,7 @@ const IndividualItem: React.FC = () => {
                 padding: "12px 100px",
                 marginLeft: "20px"
                 }}
+                // onClick={() => addToCart()}
                 > Add To Cart </Button>
 
             </Box>
