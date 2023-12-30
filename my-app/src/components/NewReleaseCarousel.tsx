@@ -14,8 +14,7 @@ const NewReleaseCarousel = ({ clothingData }: { clothingData: Product[] }) => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    const duplicatedProducts = [...clothingData, ...clothingData.slice(0, 2)];
-    setProducts(duplicatedProducts);
+    setProducts(clothingData); // Just set the products directly
   }, [clothingData]);
 
   const groupCount = Math.ceil(products.length / 4);
@@ -23,21 +22,23 @@ const NewReleaseCarousel = ({ clothingData }: { clothingData: Product[] }) => {
   const renderGroups = () => {
     return [...Array(groupCount)].map((_, groupIndex) => (
       <div key={groupIndex}>
+                   
         <Flex key={groupIndex} justifyContent="space-between">
           {products
             .slice(groupIndex * 4, (groupIndex + 1) * 4)
-            .map((product, index) => (
-              <Link key={product.id} to={`/${product.id}`}>
-                <Box key={index} flexBasis={"23%"} padding={"10px"}>
+            .map((product, index) => (     <Link key={index} to={`/${product.id}`}>
+              <Box key={index} flexBasis={"25%"} padding={"5px 20px 50px 20px"}>
+
                   <Image
+                    key={index}
                     src={product.imgUrl}
                     alt={product.name}
-                    style={{ width: "100%" }}
-                  />
-                </Box>
-              </Link>
+                    style={{ width: "100%", cursor: "pointer", height: "auto" }}
+                  />    
+              </Box> </Link>
             ))}
         </Flex>
+   
       </div>
     ));
   };
@@ -53,7 +54,7 @@ const NewReleaseCarousel = ({ clothingData }: { clothingData: Product[] }) => {
       autoPlay={true}
       emulateTouch={true} // For smoother touch interaction
       interval={3000}
-      transitionTime={1000}
+      transitionTime={2000}
     >
       {renderGroups()}
     </Carousel>

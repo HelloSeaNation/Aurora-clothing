@@ -57,10 +57,34 @@
     },
     {
 
-    "id": 9,
-    "name": "Long blue Floral Dress",
-    "price": 59.99,
-    "imgUrl": "../assets/long-blue-floral-front.png",
-    "hoverImage": "../assets/long-blue-floral-back.png"
+        "id": 9,
+        "name": "Long blue Floral Dress",
+        "price": 59.99,
+        "imgUrl": "../assets/long-blue-floral-front.png",
+        "hoverImage": "../assets/long-blue-floral-back.png"
+    },
+        
+    {
+        "id": 10,
+        "name": "Asymmetrical Neck",
+        "price": 54.99,
+        "imgUrl": "../assets/asymmetrical-neck-front.png",
+        "hoverImage": "../assets/asymmetrical-neck-back.png"
+    },
+
+    {
+        "id": 11,
+        "name": "Ombre tone",
+        "price": 39.99,
+        "imgUrl": "../assets/ombre-front.png",
+        "hoverImage": "../assets/ombre-back.png"
+    },
+
+    {
+        "id": 12,
+        "name": "Overall dress",
+        "price": 29.99,
+        "imgUrl": "../assets/overall-front.png",
+        "hoverImage": "../assets/overall-back.png"
     }
 ]

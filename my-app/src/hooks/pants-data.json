@@ -61,13 +61,5 @@
         "price": 19.99,
         "imgUrl": "../assets/waist-tie-front.png",
         "hoverImage": "../assets/waist-tie-back.png"
-    },
-
-    {
-        "id": 28,
-        "name": "Two tone pants",
-        "price": 23.99,
-        "imgUrl": "../assets/two-tone-front.png",
-        "hoverImage": "../assets/two-tone-back.png"
     }
 ]
