@@ -51,7 +51,7 @@ function Tops() {
       <SimpleGrid spacingY={60} columns={4} width={"85%"} margin={"auto"}>
         {tops.map((top) => (
         <Link key={top.id}
-        to={`/dresses/${top.id}`} // Use the item ID as part of the URL
+        to={`/${top.id}`} // Use the item ID as part of the URL
         style={{ textDecoration: "none" }}>   
           <Card key={top.id} style={cardStyles}>
             <Box style={{ display: "flex", flexDirection: "column" }}>
