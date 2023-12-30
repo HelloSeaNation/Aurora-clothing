@@ -51,14 +51,11 @@ const NewReleaseCarousel = ({ clothingData }: { clothingData: Product[] }) => {
   return (
     <Carousel
       showArrows={true}
-      infiniteLoop={true}
       showStatus={false}
       showIndicators={false}
       showThumbs={false}
       selectedItem={0}
-      autoPlay={true}
       emulateTouch={true}
-      interval={3000}
       transitionTime={2000}
     >
       {renderGroups()}
