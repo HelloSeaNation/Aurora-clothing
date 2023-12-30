@@ -18,7 +18,7 @@ export const Home = () => {
       >
         New Release
       </Text>
-      <NewReleaseCarousel clothingData={combinedData} />;
+      <NewReleaseCarousel clothingData={combinedData} />
     </Box>
   );
 };
