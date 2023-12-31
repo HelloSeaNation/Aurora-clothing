@@ -46,7 +46,7 @@ function Tops() {
         width={"80%"}
         style={textStyles}
       >
-        Dresses
+        Tops
       </Text>
       <SimpleGrid spacingY={60} columns={4} width={"85%"} margin={"auto"}>
         {tops.map((top) => (
