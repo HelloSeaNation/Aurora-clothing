@@ -14,6 +14,7 @@ import {
   useDisclosure,
   ModalContent,
   Text,
+  Input,
   Divider,
   AbsoluteCenter,
 } from "@chakra-ui/react";
@@ -74,6 +75,7 @@ const findItemById = (itemId: string): Item | undefined => {
   return undefined;
 };
 
+
 const IndividualItem: React.FC = () => {
   const { itemId } = useParams() as { itemId: string };
 
@@ -82,6 +84,10 @@ const IndividualItem: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   //   const [selectedSize, setSelectedSize] = useState<string | null>(null);
+
+  const [reviews, setReviews] = useState<{[key: string]: string[] }>({});
+  const [newReview, setNewReview] = useState<string>("");
+  const { isOpen: openReview, onOpen: onOpenReview, onClose: closeReview } = useDisclosure();
 
   if (!itemId) {
     // Error handle
@@ -97,7 +103,18 @@ const IndividualItem: React.FC = () => {
 
   const { name, price, imgUrl, hoverImage } = item;
 
+  const addReview = () => {
+    if (newReview.trim() !== "") {
+      setReviews({
+        ...reviews,
+        [itemId]: [...(reviews[itemId] || []), newReview],
+      });
+      setNewReview("");
+    }
+  }
+
   return (
+    <>
     <Box
       display="flex"
       justify-content="space-between"
@@ -214,6 +231,7 @@ const IndividualItem: React.FC = () => {
               />
             </ModalContent>
           </Modal>
+
           {/* Add to cart button */}
           <Button
             style={{
@@ -260,6 +278,95 @@ const IndividualItem: React.FC = () => {
         </Box>
       </Box>
     </Box>
+      {/* Review section */}
+      <Box display="flex"
+      alignItems="center"
+      justifyContent="center"
+      marginTop="10px">
+        <h3>Reviews</h3>
+      </Box>
+      <Box 
+      display="flex"
+      justify-content="space-between"
+      width={"95%"}>
+
+            <Box style={leftContainer}> Hello </Box>
+            <Box style={rightContainer}>
+                <Button 
+                onClick={onOpenReview}
+                cursor="pointer">Write a review</Button>
+
+                <Modal
+                isOpen={openReview}
+                onClose={closeReview}
+                isCentered
+                size={{ width: "600px", height: "400px" }}>
+                  <ModalOverlay backgroundColor="rgba(0, 0, 0, 0.5)" />
+                  <ModalContent textAlign="center" marginTop="150px">
+                    <ModalBody 
+                    backgroundColor="white"
+                    width="600px"
+                    display="flex"
+                    flexDirection="column"
+                    alignItems="center">
+
+                      <h2>Write your review</h2>
+
+                      <Input 
+                      value={newReview}
+                      height="150px"
+                      width="300px"
+                      borderRadius="5px"
+                      borderColor="#767676"
+                      onChange={(e) => setNewReview(e.target.value)}></Input>
+
+                      <Button
+                      onClick={addReview}
+                      width="90px"
+                      height="35px"
+                      borderRadius="5px"
+                      backgroundColor="#E8BCBC"
+                      border="none"
+                      fontFamily="Koulen"
+                      color="white"
+                      cursor="pointer"
+                      marginTop="10px">Submit</Button>
+
+                    </ModalBody>
+
+                    <ModalCloseButton
+                      onClick={onClose}
+                      style={{
+                        width: "23px",
+                        height: "23px",
+                        position: "absolute",
+                        top: 3,
+                        right: 275,
+                        backgroundColor: "#E8BCBC",
+                        border: "none",
+                        borderRadius: "5px",
+                        color: "white"
+                      }}
+                    />
+                  </ModalContent>
+                </Modal>
+
+                {/* display review by id */}
+                {reviews[itemId] && reviews[itemId].length > 0 && (
+                  <Box marginTop="20px">
+                    <Divider />
+                    <label style={textStyles}>Reviews:</label>
+                    {reviews[itemId].map((review, index) => (
+                      <Text key={index} style={textStyles}>
+                        {review}
+                      </Text>
+                    ))}
+                  </Box>
+                )}
+              </Box>
+
+      </Box>
+  </>
   );
 };
 
