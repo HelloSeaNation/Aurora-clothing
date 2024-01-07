@@ -82,9 +82,9 @@
 
     {
         "id": 12,
-        "name": "Overall dress",
+        "name": "Sunflower dress",
         "price": 29.99,
-        "imgUrl": "../assets/overall-front.png",
-        "hoverImage": "../assets/overall-back.png"
+        "imgUrl": "../assets/sunflower-front.png",
+        "hoverImage": "../assets/sunflower-back.png"
     }
 ]
