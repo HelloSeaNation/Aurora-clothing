@@ -83,7 +83,26 @@ const IndividualItem: React.FC = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  //State for selected size
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
+
+  //Array of sizes
+  const sizes = ["XS", "S", "M", "L", "XL"];
+  const renderSizeButtons = () => {
+    return sizes.map((size) => (
+      <Button
+        key={size}
+        style={{
+          ...sizeButtons,
+          backgroundColor: selectedSize === size ? "#E8BCBC" : "white",
+          color: selectedSize === size ? "white" : "black",
+        }}
+        onClick={() => setSelectedSize(size)}
+      >
+        {size}
+      </Button>
+    ));
+  };
 
   const [reviews, setReviews] = useState<{ [key: string]: string[] }>({});
   const [newReview, setNewReview] = useState<string>("");
@@ -158,56 +177,7 @@ const IndividualItem: React.FC = () => {
               gap="15"
               paddingBottom="10px"
             >
-              <Button
-                style={{
-                  ...sizeButtons,
-                  backgroundColor: selectedSize === "XS" ? "#E8BCBC" : "white",
-                  color: selectedSize === "XS" ? "white" : "black",
-                }}
-                onClick={() => setSelectedSize("XS")}
-              >
-                XS
-              </Button>
-              <Button
-                style={{
-                  ...sizeButtons,
-                  backgroundColor: selectedSize === "S" ? "#E8BCBC" : "white",
-                  color: selectedSize === "S" ? "white" : "black",
-                }}
-                onClick={() => setSelectedSize("S")}
-              >
-                S
-              </Button>
-              <Button
-                style={{
-                  ...sizeButtons,
-                  backgroundColor: selectedSize === "M" ? "#E8BCBC" : "white",
-                  color: selectedSize === "M" ? "white" : "black",
-                }}
-                onClick={() => setSelectedSize("M")}
-              >
-                M
-              </Button>
-              <Button
-                style={{
-                  ...sizeButtons,
-                  backgroundColor: selectedSize === "L" ? "#E8BCBC" : "white",
-                  color: selectedSize === "L" ? "white" : "black",
-                }}
-                onClick={() => setSelectedSize("L")}
-              >
-                L
-              </Button>
-              <Button
-                style={{
-                  ...sizeButtons,
-                  backgroundColor: selectedSize === "XL" ? "#E8BCBC" : "white",
-                  color: selectedSize === "XL" ? "white" : "black",
-                }}
-                onClick={() => setSelectedSize("XL")}
-              >
-                XL
-              </Button>
+              {renderSizeButtons()}
             </Box>
 
             {/* Size Guide button with modal */}
