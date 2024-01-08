@@ -20,6 +20,7 @@ import {
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruckField } from "@fortawesome/free-solid-svg-icons";
+import { formatCurrency } from "../utilities/formatCurrency";
 
 interface Item {
   id: number;
@@ -167,7 +168,7 @@ const IndividualItem: React.FC = () => {
 
           {/* render price by item.id */}
           <Box style={textStyles}>
-            <Text fontSize="20px">${price}</Text>
+            <Text fontSize="20px">{formatCurrency(price)}</Text>
 
             {/* Size options */}
             <Box
