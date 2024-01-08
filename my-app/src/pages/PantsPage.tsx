@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faStar,} from "@fortawesome/free-solid-svg-icons";
 import pants from "../hooks/pants-data.json"
 import { Link } from "react-router-dom";
+import {formatCurrency} from "../utilities/formatCurrency";
 
 const textStyles = {
   fontFamily: "Koulen",
@@ -66,7 +67,7 @@ function Pants() {
                   <Text style={cardStyles}>{pant.name}</Text>
                 </Box>
                 <Flex alignItems="center">
-                  <Text style={cardStyles}>${pant.price}</Text>
+                  <Text style={cardStyles}>{formatCurrency(pant.price)}</Text>
                   <FontAwesomeIcon icon={faStar} color={"#F1C040"} />
                   <Text style={{ ...cardStyles, ...cardStylesRight }}>4.0</Text>
                 </Flex>
