@@ -79,7 +79,6 @@ const findItemById = (itemId: string): Item | undefined => {
 };
 
 const IndividualItem: React.FC = () => {
-  
   //State for selected size
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [sizeError, setSizeError] = useState(false);
@@ -102,7 +101,6 @@ const IndividualItem: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-
 
   //Array of sizes
   const sizes = ["XS", "S", "M", "L", "XL"];
@@ -155,20 +153,35 @@ const IndividualItem: React.FC = () => {
   };
 
   const buttonStyles = {
-    backgroundColor: isHovered ? "#654534" : "#A17C5F",
+    backgroundColor: "#E8BCBC",
     color: "white",
-    fontSize: "15px",
-    fontWeight: "normal",
-    width: "16vh",
+    fontSize: "25px",
+    fontFamily: "Koulen",
+    width: "335px",
+    height: "58px",
     justifyContent: "center",
+    border: "none",
   };
 
   const qualityButtonStyles = {
-    backgroundColor: isHovered ? "#654534" : "#A17C5F",
+    backgroundColor:  "#E8BCBC",
     color: "white",
-    fontSize: "15px",
+    fontSize: "25px",
     fontWeight: "normal",
-    width: "5vh",
+    width: "50px",
+    border: "none",
+  };
+
+  const qualityBoxStyles = {
+    backgroundColor: "#E8BCBC",
+    color: "white",
+    width: "235px",
+    height: "58px",
+    fontSize: "25px",
+    margin:"0",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   };
 
   return (
@@ -215,7 +228,15 @@ const IndividualItem: React.FC = () => {
               {renderSizeButtons()}
             </Box>
             {sizeError && !selectedSize && (
-              <Text style={{ color: "red", marginTop: "-10px", marginBottom: "-14px" }}>{errorMessage}</Text>
+              <Text
+                style={{
+                  color: "red",
+                  marginTop: "-10px",
+                  marginBottom: "-14px",
+                }}
+              >
+                {errorMessage}
+              </Text>
             )}
 
             {/* Size Guide button with modal */}
@@ -226,7 +247,7 @@ const IndividualItem: React.FC = () => {
               cursor="pointer"
               padding="0px"
               onClick={onOpen}
-              marginTop={"10px"}
+              marginTop={"20px"}
             >
               Size Guide
               <ChevronRightIcon />
@@ -260,24 +281,25 @@ const IndividualItem: React.FC = () => {
             </Modal>
 
             {/* Add to cart button */}
-            <Box>
+            <Box marginTop="15px">
               {quantity === 0 ? (
                 <Button
                   style={buttonStyles}
                   onClick={() => handleAddToCart(selectedSize)}
                 >
-                  Add
+                  Add to bag
                 </Button>
               ) : (
-                <Box display="flex" gap="10px" justifyContent="center">
+                <Box display="flex" justifyContent="flex-start">
                   <Button
                     style={qualityButtonStyles}
                     onClick={() => handleAddToCart(selectedSize)}
-                    >
+                  >
                     +
                   </Button>
 
-                  <Box>{quantity} added</Box>
+                  <Box 
+                  style={qualityBoxStyles}>{quantity} added</Box>
 
                   <Button
                     style={qualityButtonStyles}
