@@ -107,6 +107,7 @@ const IndividualItem: React.FC = () => {
 
   //Array of sizes
   const sizes = ["XS", "S", "M", "L", "XL"];
+  
   const [reviews, setReviews] = useState<{ [key: string]: string[] }>({});
   const [newReview, setNewReview] = useState<string>("");
   const {
