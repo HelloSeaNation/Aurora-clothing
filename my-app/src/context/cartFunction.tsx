@@ -14,7 +14,7 @@ type CartItem = {
 type ShoppingCartContext = {
   getItemQuantity: (id: number) => number;
   increaseCartQuantity: (id: number, size: string) => void;
-  decreaseCartQuantity: (id: number) => void;
+  decreaseCartQuantity: (id: number, size: string) => void;
   removeFromCart: (id: number) => void;
   openCart: () => void;
   closeCart: () => void;
@@ -63,13 +63,13 @@ export function ShoppingCartProvider({ children }: shoppingCartProviderProps) {
     });
   }
 
-  function decreaseCartQuantity(id: number) {
+  function decreaseCartQuantity(id: number , size: string) {
     setCartItems((currItems: CartItem[]) => {
-      if (currItems.find((item) => item.id === id)?.quantity === 1) {
-        return currItems.filter((item) => item.id !== id);
+      if (currItems.find((item) => item.id === id && item.size === size)?.quantity === 1) {
+        return currItems.filter((item) => item.id !== id  && item.size !== size);
       } else {
         return currItems.map((item) => {
-          if (item.id === id) {
+          if (item.id === id && item.size === size) {
             return { ...item, quantity: item.quantity - 1 };
           } else {
             return item;
@@ -81,7 +81,7 @@ export function ShoppingCartProvider({ children }: shoppingCartProviderProps) {
 
   function removeFromCart(id: number) {
     setCartItems((currItems: CartItem[]) => {
-      return currItems.filter((item) => item.id !== id);
+      return currItems.filter((item) => item.id !== id && item.size !== item.size);
     });
   }
 
