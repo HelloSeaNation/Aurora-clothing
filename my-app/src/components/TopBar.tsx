@@ -15,8 +15,10 @@ import {
   faBagShopping,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
+import { useShoppingCart } from "../context/cartFunction";
 
 function TopBar() {
+  const { cartQuantity} = useShoppingCart();
   const [showInput, setShowInput] = useState(false);
   const inputRef = useRef(null);
 
@@ -60,6 +62,22 @@ function TopBar() {
             icon={faBagShopping}
             color="#F5F5F5"
           />
+          {cartQuantity > 0 && (
+            <Box
+              position="absolute"
+              top="12px"
+              right="30px"
+              borderRadius="100%"
+              backgroundColor="#2A2A2A"
+              width="15px"
+              height="15px"
+              textAlign="center"
+              fontSize="10px"
+              color="white"
+            >
+              {cartQuantity}
+            </Box>
+          )}
           </Link>
         </Box>
       </Flex>
