@@ -18,8 +18,7 @@ export function CartItem ({ id, quantity }: CartItemProps) {
     return (
         <Stack gap = {2}>
         <Image src={item.imgUrl} style={{ width: "100px", height: "100px"}} />
+        <div>{item.name}</div>
         </Stack>
     )
-
-
 }
