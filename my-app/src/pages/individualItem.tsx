@@ -151,7 +151,7 @@ const IndividualItem: React.FC = () => {
   };
 
   const qualityButtonStyles = {
-    backgroundColor:  "#E8BCBC",
+    backgroundColor: "#E8BCBC",
     color: "white",
     fontSize: "25px",
     fontWeight: "normal",
@@ -165,7 +165,7 @@ const IndividualItem: React.FC = () => {
     width: "235px",
     height: "58px",
     fontSize: "25px",
-    margin:"0",
+    margin: "0",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -212,12 +212,13 @@ const IndividualItem: React.FC = () => {
               gap="15"
               paddingBottom="10px"
             >
-               {sizes.map((size) => (
+              {sizes.map((size) => (
                 <Button
                   key={size}
                   style={{
                     ...sizeButtons,
-                    backgroundColor: selectedSize === size ? "#E8BCBC" : "white",
+                    backgroundColor:
+                      selectedSize === size ? "#E8BCBC" : "white",
                     color: selectedSize === size ? "white" : "black",
                   }}
                   onClick={() => setSelectedSize(size)}
@@ -297,12 +298,13 @@ const IndividualItem: React.FC = () => {
                     +
                   </Button>
 
-                  <Box 
-                  style={qualityBoxStyles}>{quantity} added</Box>
+                  <Box style={qualityBoxStyles}>{quantity} added</Box>
 
                   <Button
                     style={qualityButtonStyles}
-                    onClick={() => decreaseCartQuantity(Number(itemId), selectedSize || "")}
+                    onClick={() =>
+                      decreaseCartQuantity(Number(itemId), selectedSize || "")
+                    }
                   >
                     -
                   </Button>
