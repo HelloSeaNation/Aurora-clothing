@@ -79,10 +79,21 @@ const findItemById = (itemId: string): Item | undefined => {
 };
 
 const IndividualItem: React.FC = () => {
+  const [sizeError, setSizeError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(""); // State for error message
+  const handleAddToCart = () => {
+    if (selectedSize) {
+      // Check if a size is selected
+      increaseCartQuantity(Number(itemId));
+    } else {
+      setSizeError(true);
+      setErrorMessage("Please select a size!"); // Set the error message
+    }
+  };
 
-    const { itemId } = useParams() as { itemId: string };
+  const { itemId } = useParams() as { itemId: string };
   const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity } =
-  useShoppingCart();
+    useShoppingCart();
   const quantity = getItemQuantity(Number(itemId));
 
   const [isHovered, setIsHovered] = useState(false);
@@ -159,7 +170,6 @@ const IndividualItem: React.FC = () => {
     width: "5vh",
   };
 
-
   return (
     <>
       <Box
@@ -203,6 +213,9 @@ const IndividualItem: React.FC = () => {
             >
               {renderSizeButtons()}
             </Box>
+            {sizeError && !selectedSize && (
+              <Text style={{ color: "red", marginTop: "-10px", marginBottom: "-14px" }}>{errorMessage}</Text>
+            )}
 
             {/* Size Guide button with modal */}
             <Button
@@ -247,35 +260,35 @@ const IndividualItem: React.FC = () => {
 
             {/* Add to cart button */}
             <Box>
-        {quantity === 0 ? (
-          <Button
-            style={buttonStyles}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            onClick={() => increaseCartQuantity(Number(itemId))}
-          >
-            Add
-          </Button>
-        ) : (
-          <Box display="flex" gap="10px" justifyContent="center">
-            <Button
-              style={qualityButtonStyles}
-              onClick={() => increaseCartQuantity(Number(itemId))}
-            >
-              +
-            </Button>
+              {quantity === 0 ? (
+                <Button
+                  style={buttonStyles}
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                  onClick={handleAddToCart}
+                >
+                  Add
+                </Button>
+              ) : (
+                <Box display="flex" gap="10px" justifyContent="center">
+                  <Button
+                    style={qualityButtonStyles}
+                    onClick={() => increaseCartQuantity(Number(itemId))}
+                  >
+                    +
+                  </Button>
 
-            <Box>{quantity} added</Box>
+                  <Box>{quantity} added</Box>
 
-            <Button
-              style={qualityButtonStyles}
-              onClick={() => decreaseCartQuantity(Number(itemId))}
-            >
-              -
-            </Button>
-          </Box>
-        )}
-      </Box>
+                  <Button
+                    style={qualityButtonStyles}
+                    onClick={() => decreaseCartQuantity(Number(itemId))}
+                  >
+                    -
+                  </Button>
+                </Box>
+              )}
+            </Box>
 
             {/* Shipping information */}
             <Box
