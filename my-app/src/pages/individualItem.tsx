@@ -79,13 +79,12 @@ const findItemById = (itemId: string): Item | undefined => {
 };
 
 const IndividualItem: React.FC = () => {
-  //State for selected size
-  const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [sizeError, setSizeError] = useState(false);
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
   const handleAddToCart = (selectedSize: string | null) => {
     if (selectedSize) {
-      // Check if a size is selected
+      // Store the selected size in localStorage
+      localStorage.setItem(`selectedSize_${itemId}`, selectedSize);
       increaseCartQuantity(Number(itemId), selectedSize);
     } else {
       setSizeError(true);
@@ -97,29 +96,17 @@ const IndividualItem: React.FC = () => {
   const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity } =
     useShoppingCart();
   const quantity = getItemQuantity(Number(itemId));
-
+  const [selectedSize, setSelectedSize] = useState<string | null>(() => {
+    // Retrieve the selected size from localStorage on initial load
+    const storedSize = localStorage.getItem(`selectedSize_${itemId}`);
+    return storedSize !== null ? storedSize : null;
+  });
   const [isHovered, setIsHovered] = useState(false);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   //Array of sizes
   const sizes = ["XS", "S", "M", "L", "XL"];
-  const renderSizeButtons = () => {
-    return sizes.map((size) => (
-      <Button
-        key={size}
-        style={{
-          ...sizeButtons,
-          backgroundColor: selectedSize === size ? "#E8BCBC" : "white",
-          color: selectedSize === size ? "white" : "black",
-        }}
-        onClick={() => setSelectedSize(size)}
-      >
-        {size}
-      </Button>
-    ));
-  };
-
   const [reviews, setReviews] = useState<{ [key: string]: string[] }>({});
   const [newReview, setNewReview] = useState<string>("");
   const {
@@ -225,7 +212,19 @@ const IndividualItem: React.FC = () => {
               gap="15"
               paddingBottom="10px"
             >
-              {renderSizeButtons()}
+               {sizes.map((size) => (
+                <Button
+                  key={size}
+                  style={{
+                    ...sizeButtons,
+                    backgroundColor: selectedSize === size ? "#E8BCBC" : "white",
+                    color: selectedSize === size ? "white" : "black",
+                  }}
+                  onClick={() => setSelectedSize(size)}
+                >
+                  {size}
+                </Button>
+              ))}
             </Box>
             {sizeError && !selectedSize && (
               <Text
@@ -310,7 +309,6 @@ const IndividualItem: React.FC = () => {
                 </Box>
               )}
             </Box>
-
             {/* Shipping information */}
             <Box
               style={textStyles}
