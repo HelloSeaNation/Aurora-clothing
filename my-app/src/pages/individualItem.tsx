@@ -1,6 +1,7 @@
 import dresses from "../hooks/dressdata.json";
 import pant from "../hooks/pants-data.json";
 import top from "../hooks/top-data.json";
+import { useShoppingCart } from "../context/cartFunction";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import {
@@ -78,7 +79,11 @@ const findItemById = (itemId: string): Item | undefined => {
 };
 
 const IndividualItem: React.FC = () => {
-  const { itemId } = useParams() as { itemId: string };
+
+    const { itemId } = useParams() as { itemId: string };
+  const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity } =
+  useShoppingCart();
+  const quantity = getItemQuantity(Number(itemId));
 
   const [isHovered, setIsHovered] = useState(false);
 
@@ -136,6 +141,24 @@ const IndividualItem: React.FC = () => {
       setNewReview("");
     }
   };
+
+  const buttonStyles = {
+    backgroundColor: isHovered ? "#654534" : "#A17C5F",
+    color: "white",
+    fontSize: "15px",
+    fontWeight: "normal",
+    width: "16vh",
+    justifyContent: "center",
+  };
+
+  const qualityButtonStyles = {
+    backgroundColor: isHovered ? "#654534" : "#A17C5F",
+    color: "white",
+    fontSize: "15px",
+    fontWeight: "normal",
+    width: "5vh",
+  };
+
 
   return (
     <>
@@ -223,25 +246,36 @@ const IndividualItem: React.FC = () => {
             </Modal>
 
             {/* Add to cart button */}
+            <Box>
+        {quantity === 0 ? (
+          <Button
+            style={buttonStyles}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onClick={() => increaseCartQuantity(Number(itemId))}
+          >
+            Add
+          </Button>
+        ) : (
+          <Box display="flex" gap="10px" justifyContent="center">
             <Button
-              style={{
-                backgroundColor: "#E8BCBC",
-                border: "none",
-                color: "white",
-                fontFamily: "Koulen",
-                fontSize: "25px",
-                cursor: "pointer",
-                marginTop: "20px",
-                display: "flex",
-                width: "330px",
-                height: "60px",
-                marginBottom: "20px",
-              }}
-              // onClick={() => addToCart()}
+              style={qualityButtonStyles}
+              onClick={() => increaseCartQuantity(Number(itemId))}
             >
-              {" "}
-              Add To Cart{" "}
+              +
             </Button>
+
+            <Box>{quantity} added</Box>
+
+            <Button
+              style={qualityButtonStyles}
+              onClick={() => decreaseCartQuantity(Number(itemId))}
+            >
+              -
+            </Button>
+          </Box>
+        )}
+      </Box>
 
             {/* Shipping information */}
             <Box
