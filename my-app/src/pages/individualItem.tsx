@@ -101,8 +101,8 @@ const IndividualItem: React.FC = () => {
     const storedSize = localStorage.getItem(`selectedSize_${itemId}`);
     return storedSize !== null ? storedSize : null;
   });
-  const [isHovered, setIsHovered] = useState(false);
   const quantity = getItemQuantity(Number(itemId), selectedSize || "");
+  const [isHovered, setIsHovered] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   //Array of sizes
@@ -282,7 +282,7 @@ const IndividualItem: React.FC = () => {
 
             {/* Add to cart button */}
             <Box marginTop="15px">
-              { quantity === 0 ? (
+              {quantity === 0 ? (
                 <Button
                   style={buttonStyles}
                   onClick={() => handleAddToCart(selectedSize)}
