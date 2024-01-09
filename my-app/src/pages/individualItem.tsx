@@ -303,7 +303,7 @@ const IndividualItem: React.FC = () => {
 
                   <Button
                     style={qualityButtonStyles}
-                    onClick={() => decreaseCartQuantity(Number(itemId), sizes[0])}
+                    onClick={() => decreaseCartQuantity(Number(itemId), selectedSize || "")}
                   >
                     -
                   </Button>
