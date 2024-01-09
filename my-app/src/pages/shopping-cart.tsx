@@ -56,7 +56,7 @@ function ShoppingCart() {
       </Container>
       <Stack gap={3}>
         {cartItems.map((item) => (
-          <CartItem key={item.id} {...item} />
+          <CartItem key={item.id} {...item} size={item.size} />
         ))}
       </Stack>
     </>

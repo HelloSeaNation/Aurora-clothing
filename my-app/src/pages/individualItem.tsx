@@ -79,12 +79,15 @@ const findItemById = (itemId: string): Item | undefined => {
 };
 
 const IndividualItem: React.FC = () => {
+  
+  //State for selected size
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [sizeError, setSizeError] = useState(false);
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
-  const handleAddToCart = () => {
+  const handleAddToCart = (selectedSize: string | null) => {
     if (selectedSize) {
       // Check if a size is selected
-      increaseCartQuantity(Number(itemId));
+      increaseCartQuantity(Number(itemId), selectedSize);
     } else {
       setSizeError(true);
       setErrorMessage("Please select a size!"); // Set the error message
@@ -100,8 +103,6 @@ const IndividualItem: React.FC = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  //State for selected size
-  const [selectedSize, setSelectedSize] = useState<string | null>(null);
 
   //Array of sizes
   const sizes = ["XS", "S", "M", "L", "XL"];
@@ -265,7 +266,7 @@ const IndividualItem: React.FC = () => {
                   style={buttonStyles}
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
-                  onClick={handleAddToCart}
+                  onClick={() => handleAddToCart(selectedSize)}
                 >
                   Add
                 </Button>
@@ -273,8 +274,8 @@ const IndividualItem: React.FC = () => {
                 <Box display="flex" gap="10px" justifyContent="center">
                   <Button
                     style={qualityButtonStyles}
-                    onClick={() => increaseCartQuantity(Number(itemId))}
-                  >
+                    onClick={() => handleAddToCart(selectedSize)}
+                    >
                     +
                   </Button>
 

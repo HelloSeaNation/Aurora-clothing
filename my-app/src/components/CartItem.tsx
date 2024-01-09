@@ -7,9 +7,10 @@ import { Stack, Image } from "@chakra-ui/react";
 type CartItemProps = {
     id: number
     quantity: number
+    size: string
 }
 
-export function CartItem ({ id, quantity }: CartItemProps) {
+export function CartItem ({ id, quantity, size }: CartItemProps) {
     const { removeFromCart} = useShoppingCart()
     const allStoreItems = [...dresses, ...pants, ...tops];
     const item = allStoreItems.find((item) => item.id === id);
@@ -19,6 +20,7 @@ export function CartItem ({ id, quantity }: CartItemProps) {
         <Stack gap = {2}>
         <Image src={item.imgUrl} style={{ width: "100px", height: "100px"}} />
         <div>{item.name}</div>
+        <div>Size {size}</div>
         </Stack>
     )
 }
