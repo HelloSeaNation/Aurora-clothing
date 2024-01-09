@@ -264,8 +264,6 @@ const IndividualItem: React.FC = () => {
               {quantity === 0 ? (
                 <Button
                   style={buttonStyles}
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
                   onClick={() => handleAddToCart(selectedSize)}
                 >
                   Add
