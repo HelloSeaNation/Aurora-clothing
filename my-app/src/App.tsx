@@ -12,10 +12,12 @@ import Dresses from "./pages/DressesPage"
 import Pants from "./pages/PantsPage";
 import Tops from "./pages/TopsPage";
 import IndividualItem from "./pages/individualItem";
+import { ShoppingCartProvider } from "./context/cartFunction";
 
 function App() {
   return (
     <>
+    <ShoppingCartProvider>
       <HashRouter basename="/">
         <Box backgroundColor="#FFFFFF">
           <TopBar />
@@ -33,6 +35,8 @@ function App() {
           </Routes>
         </Box>
       </HashRouter>
+    </ShoppingCartProvider>
+      
     </>
   );
 }

@@ -1,6 +1,7 @@
 import dresses from "../hooks/dressdata.json";
 import pant from "../hooks/pants-data.json";
 import top from "../hooks/top-data.json";
+import { useShoppingCart } from "../context/cartFunction";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import {
@@ -78,7 +79,22 @@ const findItemById = (itemId: string): Item | undefined => {
 };
 
 const IndividualItem: React.FC = () => {
+  const [sizeError, setSizeError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(""); // State for error message
+  const handleAddToCart = () => {
+    if (selectedSize) {
+      // Check if a size is selected
+      increaseCartQuantity(Number(itemId));
+    } else {
+      setSizeError(true);
+      setErrorMessage("Please select a size!"); // Set the error message
+    }
+  };
+
   const { itemId } = useParams() as { itemId: string };
+  const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity } =
+    useShoppingCart();
+  const quantity = getItemQuantity(Number(itemId));
 
   const [isHovered, setIsHovered] = useState(false);
 
@@ -137,6 +153,23 @@ const IndividualItem: React.FC = () => {
     }
   };
 
+  const buttonStyles = {
+    backgroundColor: isHovered ? "#654534" : "#A17C5F",
+    color: "white",
+    fontSize: "15px",
+    fontWeight: "normal",
+    width: "16vh",
+    justifyContent: "center",
+  };
+
+  const qualityButtonStyles = {
+    backgroundColor: isHovered ? "#654534" : "#A17C5F",
+    color: "white",
+    fontSize: "15px",
+    fontWeight: "normal",
+    width: "5vh",
+  };
+
   return (
     <>
       <Box
@@ -180,6 +213,9 @@ const IndividualItem: React.FC = () => {
             >
               {renderSizeButtons()}
             </Box>
+            {sizeError && !selectedSize && (
+              <Text style={{ color: "red", marginTop: "-10px", marginBottom: "-14px" }}>{errorMessage}</Text>
+            )}
 
             {/* Size Guide button with modal */}
             <Button
@@ -223,25 +259,36 @@ const IndividualItem: React.FC = () => {
             </Modal>
 
             {/* Add to cart button */}
-            <Button
-              style={{
-                backgroundColor: "#E8BCBC",
-                border: "none",
-                color: "white",
-                fontFamily: "Koulen",
-                fontSize: "25px",
-                cursor: "pointer",
-                marginTop: "20px",
-                display: "flex",
-                width: "330px",
-                height: "60px",
-                marginBottom: "20px",
-              }}
-              // onClick={() => addToCart()}
-            >
-              {" "}
-              Add To Cart{" "}
-            </Button>
+            <Box>
+              {quantity === 0 ? (
+                <Button
+                  style={buttonStyles}
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                  onClick={handleAddToCart}
+                >
+                  Add
+                </Button>
+              ) : (
+                <Box display="flex" gap="10px" justifyContent="center">
+                  <Button
+                    style={qualityButtonStyles}
+                    onClick={() => increaseCartQuantity(Number(itemId))}
+                  >
+                    +
+                  </Button>
+
+                  <Box>{quantity} added</Box>
+
+                  <Button
+                    style={qualityButtonStyles}
+                    onClick={() => decreaseCartQuantity(Number(itemId))}
+                  >
+                    -
+                  </Button>
+                </Box>
+              )}
+            </Box>
 
             {/* Shipping information */}
             <Box
