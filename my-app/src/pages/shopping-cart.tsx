@@ -1,7 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { Container, Text } from "@chakra-ui/react";
-import { text } from "stream/consumers";
+import { Container, Text, Stack } from "@chakra-ui/react";
+import { CartItem } from "../components/CartItem";
+import { useShoppingCart } from "../context/cartFunction";
 
 const textStyles = {
   fontFamily: "Koulen",
@@ -10,6 +11,8 @@ const textStyles = {
 };
 
 function ShoppingCart() {
+  const { cartItems } = useShoppingCart();
+
   return (
     <>
       <Text
@@ -51,6 +54,11 @@ function ShoppingCart() {
           Continue Shopping
         </Text>
       </Container>
+      <Stack gap={3}>
+        {cartItems.map((item) => (
+          <CartItem key={item.id} {...item} />
+        ))}
+      </Stack>
     </>
   );
 }
