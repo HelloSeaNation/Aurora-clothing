@@ -96,11 +96,7 @@ const IndividualItem: React.FC = () => {
   const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity } =
     useShoppingCart();
 
-  const [selectedSize, setSelectedSize] = useState<string | null>(() => {
-    // Retrieve the selected size from localStorage on initial load
-    const storedSize = localStorage.getItem(`selectedSize_${itemId}`);
-    return storedSize !== null ? storedSize : null;
-  });
+  const [selectedSize, setSelectedSize] = useState<string | null>(() => null);
   const quantity = getItemQuantity(Number(itemId), selectedSize || "");
   const [isHovered, setIsHovered] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -292,16 +288,8 @@ const IndividualItem: React.FC = () => {
                 </Button>
               ) : (
                 <Box display="flex" justifyContent="flex-start">
-                  <Button
-                    style={qualityButtonStyles}
-                    onClick={() => handleAddToCart(selectedSize)}
-                  >
-                    +
-                  </Button>
-
-                  <Box style={qualityBoxStyles}>{quantity} added</Box>
-
-                  <Button
+    
+    <Button
                     style={qualityButtonStyles}
                     onClick={() =>
                       decreaseCartQuantity(Number(itemId), selectedSize || "")
@@ -309,6 +297,14 @@ const IndividualItem: React.FC = () => {
                   >
                     -
                   </Button>
+                  <Box style={qualityBoxStyles}>{quantity} added</Box>
+                  <Button
+                    style={qualityButtonStyles}
+                    onClick={() => handleAddToCart(selectedSize)}
+                  >
+                    +
+                  </Button>
+                  
                 </Box>
               )}
             </Box>
