@@ -12,8 +12,18 @@ type CartItemProps = {
   size: string;
 };
 
+const ButtonStyle = {
+  backgroundColor: "#E8BCBC",
+  color: "#FFFFFF",
+  border: "none",
+  width: "30px",
+  height: "30px",
+  margin: "0 10px 0 10px",
+};
+
 export function CartItem({ id, quantity, size }: CartItemProps) {
-  const { removeFromCart, increaseCartQuantity, decreaseCartQuantity } = useShoppingCart();
+  const { removeFromCart, increaseCartQuantity, decreaseCartQuantity } =
+    useShoppingCart();
   const allStoreItems = [...dresses, ...pants, ...tops];
   const item = allStoreItems.find((item) => item.id === id);
   if (item == null) return null;
@@ -28,9 +38,19 @@ export function CartItem({ id, quantity, size }: CartItemProps) {
       <Box>Size {size}</Box>
       <Box>
         Qty:{" "}
-        <Button onClick={() => decreaseCartQuantity(id, size)}>-</Button>
+        <Button
+          style={ButtonStyle}
+          onClick={() => decreaseCartQuantity(id, size)}
+        >
+          -
+        </Button>
         {quantity}
-        <Button onClick={() => increaseCartQuantity(id, size)}>+</Button>
+        <Button
+          style={ButtonStyle}
+          onClick={() => increaseCartQuantity(id, size)}
+        >
+          +
+        </Button>
       </Box>
       <Box>{formatCurrency(totalPrice)}</Box>
     </Flex>
