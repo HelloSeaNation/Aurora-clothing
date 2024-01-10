@@ -25,13 +25,12 @@ function ShoppingCart() {
       </Text>
       <Box
           style={{
-            border: "1px solid #AFA79F",
-            height: "20vh",
             ...textStyles,
+            fontSize: "20px",
           }}
         >
       {cartItems.length > 0 ? ( // Conditionally render based on cartItems length
-        <Stack gap={10}>
+        <Stack gap={0} >
           {cartItems.map((item) => (
             <CartItem key={item.id} {...item}  size={item.size} />
           ))}

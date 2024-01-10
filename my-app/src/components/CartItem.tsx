@@ -29,9 +29,14 @@ export function CartItem({ id, quantity, size }: CartItemProps) {
   const totalPrice = item.price * quantity;
 
   return (
-    <Grid templateColumns={"repeat(4, 1fr)"} gap={100} alignItems={"center"}>
+    <Grid
+      templateColumns={"repeat(4, 1fr)"}
+      gap={100}
+      alignItems={"center"}
+      style={{ border: "1px solid #AFA79F" }}
+    >
       <Link to={`/${item.id}`}>
-        <Image src={item.imgUrl} style={{ width: "100px", height: "auto" }} />
+        <Image src={item.imgUrl} style={{  paddingLeft:"4rem", paddingTop:"3rem", paddingBottom:"2rem", width: "100px", height: "auto" }} />
       </Link>
       <Flex direction={"column"}>
         <Box>{item.name}</Box>
