@@ -12,10 +12,10 @@ type CartItem = {
 };
 
 type ShoppingCartContext = {
-  getItemQuantity: (id: number) => number;
+  getItemQuantity: (id: number, size: string) => number;
   increaseCartQuantity: (id: number, size: string) => void;
-  decreaseCartQuantity: (id: number) => void;
-  removeFromCart: (id: number) => void;
+  decreaseCartQuantity: (id: number, size: string) => void;
+  removeFromCart: (id: number, size: string) => void;
   openCart: () => void;
   closeCart: () => void;
   cartQuantity: number;
@@ -42,8 +42,8 @@ export function ShoppingCartProvider({ children }: shoppingCartProviderProps) {
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
 
-  function getItemQuantity(id: number) {
-    return cartItems.find((item: CartItem) => item.id === id)?.quantity || 0;
+  function getItemQuantity(id: number, size: string	) {
+    return cartItems.find((item: CartItem) => item.id === id && item.size === size)?.quantity || 0;
   }
 
   function increaseCartQuantity(id: number, size: string) {
@@ -63,13 +63,15 @@ export function ShoppingCartProvider({ children }: shoppingCartProviderProps) {
     });
   }
 
-  function decreaseCartQuantity(id: number) {
+  function decreaseCartQuantity(id: number , size: string) {
     setCartItems((currItems: CartItem[]) => {
-      if (currItems.find((item) => item.id === id)?.quantity === 1) {
-        return currItems.filter((item) => item.id !== id);
+      const currentItem = currItems.find((item) => item.id === id && item.size === size);
+      if (currentItem && currentItem.quantity === 1) {
+        // If quantity is 1, remove only the selected size
+        return currItems.filter((item) => !(item.id === id && item.size === size));
       } else {
         return currItems.map((item) => {
-          if (item.id === id) {
+          if (item.id === id && item.size === size) {
             return { ...item, quantity: item.quantity - 1 };
           } else {
             return item;
@@ -79,9 +81,9 @@ export function ShoppingCartProvider({ children }: shoppingCartProviderProps) {
     });
   }
 
-  function removeFromCart(id: number) {
+  function removeFromCart(id: number, size: string) {
     setCartItems((currItems: CartItem[]) => {
-      return currItems.filter((item) => item.id !== id);
+      return currItems.filter((item) => item.id !== id && item.size !== item.size);
     });
   }
 
