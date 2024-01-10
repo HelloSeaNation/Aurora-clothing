@@ -33,7 +33,7 @@ function ShoppingCart() {
       {cartItems.length > 0 ? ( // Conditionally render based on cartItems length
         <Stack gap={10}>
           {cartItems.map((item) => (
-            <CartItem key={item.id} {...item} size={item.size} />
+            <CartItem key={item.id} {...item}  size={item.size} />
           ))}
         </Stack>
       ) : (
