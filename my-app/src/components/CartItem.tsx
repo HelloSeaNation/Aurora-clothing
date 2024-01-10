@@ -19,6 +19,7 @@ const ButtonStyle = {
   width: "30px",
   height: "30px",
   margin: "0 10px 0 10px",
+  fontSize: "30px",
 };
 
 export function CartItem({ id, quantity, size }: CartItemProps) {

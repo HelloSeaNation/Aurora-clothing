@@ -41,10 +41,11 @@ function ShoppingCart() {
             border: "1px solid #AFA79F",
             height: "20vh",
             textAlign: "center",
-            ...textStyles,
+            width: "100%",
+            margin: "auto",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
+            paddingBottom:"5rem",
           }}
         >
           <FontAwesomeIcon
