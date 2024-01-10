@@ -2,7 +2,7 @@ import { useShoppingCart } from "../context/cartFunction";
 import dresses from "../hooks/dressdata.json";
 import pants from "../hooks/pants-data.json";
 import tops from "../hooks/top-data.json";
-import { Image, Flex, Box, Button } from "@chakra-ui/react";
+import { Image, Grid, Box, Button, Flex } from "@chakra-ui/react";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { Link } from "react-router-dom";
 
@@ -22,20 +22,22 @@ const ButtonStyle = {
 };
 
 export function CartItem({ id, quantity, size }: CartItemProps) {
-  const { removeFromCart, increaseCartQuantity, decreaseCartQuantity } =
-    useShoppingCart();
+  const { increaseCartQuantity, decreaseCartQuantity } = useShoppingCart();
   const allStoreItems = [...dresses, ...pants, ...tops];
   const item = allStoreItems.find((item) => item.id === id);
   if (item == null) return null;
   const totalPrice = item.price * quantity;
 
   return (
-    <Flex gap={100}>
+    <Grid templateColumns={"repeat(4, 1fr)"} gap={100} alignItems={"center"}>
       <Link to={`/${item.id}`}>
-        <Image src={item.imgUrl} style={{ width: "100px", height: "100px" }} />
+        <Image src={item.imgUrl} style={{ width: "100px", height: "auto" }} />
       </Link>
-      <Box>{item.name}</Box>
-      <Box>Size {size}</Box>
+      <Flex direction={"column"}>
+        <Box>{item.name}</Box>
+        <Box>Size: {size}</Box>
+      </Flex>
+
       <Box>
         Qty:{" "}
         <Button
@@ -53,6 +55,6 @@ export function CartItem({ id, quantity, size }: CartItemProps) {
         </Button>
       </Box>
       <Box>{formatCurrency(totalPrice)}</Box>
-    </Flex>
+    </Grid>
   );
 }
