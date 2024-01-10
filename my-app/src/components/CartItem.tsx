@@ -44,7 +44,7 @@ export function CartItem({ id, quantity, size }: CartItemProps) {
       </Flex>
 
       <Box>
-        Qty:{" "}
+        Qty:
         <Button
           style={ButtonStyle}
           onClick={() => decreaseCartQuantity(id, size)}

@@ -30,11 +30,11 @@ function ShoppingCart() {
           }}
         >
       {cartItems.length > 0 ? ( // Conditionally render based on cartItems length
-        <Stack gap={0} >
+        <Box >
           {cartItems.map((item) => (
             <CartItem key={item.id} {...item}  size={item.size} />
           ))}
-        </Stack>
+        </Box>
       ) : (
         <Container
           style={{
