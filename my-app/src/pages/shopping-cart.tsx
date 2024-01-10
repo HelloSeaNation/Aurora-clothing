@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { Container, Text, Stack } from "@chakra-ui/react";
+import { Container, Text, Stack, Box } from "@chakra-ui/react";
 import { CartItem } from "../components/CartItem";
 import { useShoppingCart } from "../context/cartFunction";
 
@@ -23,8 +23,15 @@ function ShoppingCart() {
       >
         Shopping Cart
       </Text>
+      <Box
+          style={{
+            border: "1px solid #AFA79F",
+            height: "20vh",
+            ...textStyles,
+          }}
+        >
       {cartItems.length > 0 ? ( // Conditionally render based on cartItems length
-        <Stack gap={3}>
+        <Stack gap={10}>
           {cartItems.map((item) => (
             <CartItem key={item.id} {...item} size={item.size} />
           ))}
@@ -64,7 +71,7 @@ function ShoppingCart() {
             Continue Shopping
           </Text> */}
         </Container>
-      )}
+      )} </Box>
     </>
   );
 }
