@@ -37,30 +37,40 @@ export function CartItem({ id, quantity, size }: CartItemProps) {
       style={{ border: "1px solid #AFA79F" }}
     >
       <Link to={`/${item.id}`}>
-        <Image src={item.imgUrl} style={{  paddingLeft:"4rem", paddingTop:"3rem", paddingBottom:"2rem", width: "100px", height: "auto" }} />
+        <Image
+          src={item.imgUrl}
+          style={{
+            paddingLeft: "4rem",
+            paddingTop: "3rem",
+            paddingBottom: "2rem",
+            width: "100px",
+            height: "auto",
+          }}
+        />
       </Link>
       <Flex direction={"column"}>
-        <Box>{item.name}</Box>
+        <Box fontSize={"26px"}>{item.name}</Box>
         <Box>Size: {size}</Box>
       </Flex>
-
-      <Box>
-        Qty:
-        <Button
-          style={ButtonStyle}
-          onClick={() => decreaseCartQuantity(id, size)}
-        >
-          -
-        </Button>
-        {quantity}
-        <Button
-          style={ButtonStyle}
-          onClick={() => increaseCartQuantity(id, size)}
-        >
-          +
-        </Button>
-      </Box>
-      <Box>{formatCurrency(totalPrice)}</Box>
+      <Flex></Flex>
+      <Flex direction={"column"} alignItems={"center"}>
+        <Box fontSize={"20px"}>
+          <Button
+            style={ButtonStyle}
+            onClick={() => decreaseCartQuantity(id, size)}
+          >
+            -
+          </Button>
+          {quantity}
+          <Button
+            style={ButtonStyle}
+            onClick={() => increaseCartQuantity(id, size)}
+          >
+            +
+          </Button>
+        </Box>
+        <Box fontSize={"26px"}>{formatCurrency(totalPrice)}</Box>
+      </Flex>
     </Grid>
   );
 }

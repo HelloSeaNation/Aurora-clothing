@@ -51,6 +51,51 @@ function ShoppingCart() {
             {cartItems.map((item) => (
               <CartItem key={item.id} {...item} size={item.size} />
             ))}
+            <Flex justifyContent={"flex-end"} margin={"auto"}>
+              <Box>
+                <Text
+                  style={subtotalStyle}
+                  paddingTop={"20px"}
+                  paddingRight={"15px"}
+                >
+                  SubTotal
+                </Text>
+              </Box>
+              <Box>
+                <Text
+                  style={subtotalStyle}
+                  paddingTop={"20px"}
+                  paddingRight={"15px"}
+                >
+                  {formatCurrency(Number(totalPrice))}
+                </Text>
+              </Box>
+            </Flex>
+            <Flex
+              justifyContent={"flex-end"}
+              margin={"auto"}
+              paddingRight={"15px"}
+              marginTop={"-20px"}
+              fontSize={"20px"}
+              fontFamily={"Koulen"}
+            >
+              <Text>Includes GST. Shipping calculated at checkout</Text>
+            </Flex>
+            <Flex width={"80%"} margin={"auto"} justifyContent={"center"}>
+              <Button
+                width={"325px"}
+                height={"83px"}
+                borderRadius={"15"}
+                backgroundColor={"#028702"}
+                color={"#FFFFFF"}
+                border={"transparent"}
+                boxShadow={"0px 4px 4px rgba(0, 0, 0, 0.25)"}
+              >
+                <Text style={subtotalStyle} backgroundColor={"#028702"}>
+                  CHECKOUT
+                </Text>
+              </Button>
+            </Flex>
           </Box>
         ) : (
           <Container
@@ -82,44 +127,6 @@ function ShoppingCart() {
           </Container>
         )}{" "}
       </Box>
-      <Flex justifyContent={"flex-end"} width={"80%"} margin={"auto"}>
-        <Box>
-          <Text style={subtotalStyle} paddingTop={"20px"} paddingRight={"15px"}>
-            SubTotal
-          </Text>
-        </Box>
-        <Box>
-          <Text style={subtotalStyle} paddingTop={"20px"} paddingRight={"15px"}>
-            {formatCurrency(Number(totalPrice))}
-          </Text>
-        </Box>
-      </Flex>
-      <Flex
-        justifyContent={"flex-end"}
-        width={"80%"}
-        margin={"auto"}
-        paddingRight={"20px"}
-        marginTop={"-20px"}
-        fontSize={"20px"}
-        fontFamily={"Koulen"}
-      >
-        <Text>Includes GST. Shipping calculated at checkout.</Text>
-      </Flex>
-      <Flex width={"80%"} margin={"auto"} justifyContent={"center"}>
-        <Button
-          width={"325px"}
-          height={"83px"}
-          borderRadius={"15"}
-          backgroundColor={"#028702"}
-          color={"#FFFFFF"}
-          border={"transparent"}
-          boxShadow={"0px 4px 4px rgba(0, 0, 0, 0.25)"}
-        >
-          <Text style={subtotalStyle} backgroundColor={"#028702"}>
-            CHECKOUT
-          </Text>
-        </Button>
-      </Flex>
     </>
   );
 }
