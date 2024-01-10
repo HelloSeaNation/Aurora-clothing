@@ -2,7 +2,7 @@ import { useShoppingCart } from "../context/cartFunction";
 import dresses from "../hooks/dressdata.json";
 import pants from "../hooks/pants-data.json";
 import tops from "../hooks/top-data.json";
-import { Stack, Image, Flex, Box } from "@chakra-ui/react";
+import { Image, Flex, Box, Button } from "@chakra-ui/react";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { Link } from "react-router-dom";
 
@@ -13,7 +13,7 @@ type CartItemProps = {
 };
 
 export function CartItem({ id, quantity, size }: CartItemProps) {
-  const { removeFromCart } = useShoppingCart();
+  const { removeFromCart, increaseCartQuantity, decreaseCartQuantity } = useShoppingCart();
   const allStoreItems = [...dresses, ...pants, ...tops];
   const item = allStoreItems.find((item) => item.id === id);
   if (item == null) return null;
@@ -26,7 +26,12 @@ export function CartItem({ id, quantity, size }: CartItemProps) {
       </Link>
       <Box>{item.name}</Box>
       <Box>Size {size}</Box>
-      <Box>Qty: {quantity}</Box>
+      <Box>
+        Qty:{" "}
+        <Button onClick={() => decreaseCartQuantity(id, size)}>-</Button>
+        {quantity}
+        <Button onClick={() => increaseCartQuantity(id, size)}>+</Button>
+      </Box>
       <Box>{formatCurrency(totalPrice)}</Box>
     </Flex>
   );
