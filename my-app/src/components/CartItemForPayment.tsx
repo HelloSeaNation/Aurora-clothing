@@ -12,53 +12,48 @@ type CartItemProps = {
   size: string;
 };
 
-const ButtonStyle = {
-  backgroundColor: "#E8BCBC",
-  color: "#FFFFFF",
-  border: "none",
-  width: "30px",
-  height: "30px",
-  margin: "0 10px 0 10px",
-  fontSize: "30px",
+const textStyles = {
+  fontFamily: "Arial",
 };
 
 export function CartItem({ id, quantity, size }: CartItemProps) {
-  const { increaseCartQuantity, decreaseCartQuantity } = useShoppingCart();
   const allStoreItems = [...dresses, ...pants, ...tops];
   const item = allStoreItems.find((item) => item.id === id);
   if (item == null) return null;
   const totalPrice = item.price * quantity;
 
   return (
-    <Grid
-      templateColumns={"repeat(4, 1fr)"}
-      gap={100}
-      alignItems={"center"}
-      style={{ border: "1px solid #AFA79F" }}
-    >
+    <Flex style={{ alignItems: "center" }}>
       <Link to={`/${item.id}`}>
         <Image
           src={item.imgUrl}
           style={{
-            paddingLeft: "4rem",
-            paddingTop: "3rem",
-            paddingBottom: "2rem",
-            width: "100px",
+            paddingLeft: "1rem",
+            paddingTop: "1rem",
+            paddingRight: "1rem",
+            width: "80px",
             height: "auto",
           }}
         />
       </Link>
-      <Flex direction={"column"}>
-        <Box fontSize={"26px"}>{item.name}</Box>
-        <Box>Size: {size}</Box>
+      <Flex direction={"column"} gap={"15px"} width={"40%"}>
+        <Box style={textStyles} fontSize={"26px"}>
+          {item.name}
+        </Box>
+        <Flex direction={"row"} justifyContent={"space-between"} >
+          <Box style={textStyles} fontSize={"20px"}>
+            Size: {size}
+          </Box>
+          <Box style={textStyles} fontSize={"20px"}>
+            Qty: {quantity}
+          </Box>
+        </Flex>
+        <Box style={textStyles} fontSize={"20px"}>
+          {formatCurrency(totalPrice)}
+        </Box>
       </Flex>
       <Flex></Flex>
-      <Flex direction={"column"} alignItems={"center"}>
-        <Box fontSize={"20px"}>
-          QTY: {quantity}
-        </Box>
-        <Box fontSize={"26px"}>{formatCurrency(totalPrice)}</Box>
-      </Flex>
-    </Grid>
+      <Flex direction={"column"} alignItems={"center"}></Flex>
+    </Flex>
   );
 }

@@ -77,24 +77,48 @@ const PaymentForm = () => {
     },
   };
 
+  const textStyles = {
+    fontFamily: "Koulen",
+    fontSize: "30px",
+    margin: "auto",
+  };
+
   const cardElementOptions = {
     hidePostalCode: true,
     style: cardStyle,
-    disableLinks: false,
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <Text> Total payment {formatCurrency(Number(totalPrice))}</Text>
-      <CardElement options={cardElementOptions} />
-      <Text> Billing Address</Text>
-      <AddressElement options={{ mode: "billing" }} />
-      {paymentError && (
-        <div style={{ color: "red" }}>{paymentError.message}</div>
-      )}
-      <Button type="submit" disabled={!stripe}>
-        Pay
-      </Button>
+      <Box width={"75%"} marginLeft={"145px"}>
+        <Text textAlign={"left"} style={textStyles}>
+          Payment
+        </Text>
+        <Text fontFamily={"Arial"} fontSize={"25px"} fontWeight={"bold"}>
+          Total: {formatCurrency(Number(totalPrice))}
+        </Text>
+        <Box fontFamily={"Arial"} fontSize={"20px"} marginBottom={"10px"}>
+          Debit or Credit Card
+        </Box>
+        <Box
+          border={"1px solid #E6E6E6"}
+          borderRadius={"5px"}
+          height={"25px"}
+          padding={"10px"}
+        >
+          <CardElement options={cardElementOptions} />
+        </Box>
+        <Text fontFamily={"Koulen"} fontSize={"30px"} marginTop={"20px"}>
+          Billing Address
+        </Text>
+        <AddressElement options={{ mode: "billing" }} />
+        {paymentError && (
+          <div style={{ color: "red" }}>{paymentError.message}</div>
+        )}
+        <Button type="submit" disabled={!stripe}>
+          Pay
+        </Button>
+      </Box>
     </form>
   );
 };
