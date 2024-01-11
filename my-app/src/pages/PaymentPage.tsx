@@ -1,6 +1,8 @@
 import React from "react";
 import PaymentForm from "../components/PaymentForm";
 import { Box, Text, Flex } from "@chakra-ui/react";
+import { CartItem } from "../components/CartItem";
+import { useShoppingCart } from "../context/cartFunction";
 
 const textStyles = {
   fontFamily: "Koulen",
@@ -9,6 +11,8 @@ const textStyles = {
 };
 
 const PaymentPage = () => {
+  const { cartItems, cartQuantity } = useShoppingCart();
+
   return (
     <>
       <Text
@@ -26,7 +30,9 @@ const PaymentPage = () => {
         </Box>
 
         {/* Right side */}
-        <Box width={"50%"} margin={"auto"} backgroundColor={"#EDEDED"}>test</Box>
+        <Box width={"50%"} margin={"auto"} backgroundColor={"#EDEDED"}> {cartItems.map((item) => (
+              <CartItem key={item.id} {...item} size={item.size} />
+            ))}</Box>
       </Flex>
     </>
   );
