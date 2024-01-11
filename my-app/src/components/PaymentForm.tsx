@@ -109,10 +109,10 @@ const PaymentForm = () => {
         >
           <CardElement options={cardElementOptions} />
         </Box>
-        <Text fontFamily={"Koulen"} fontSize={"30px"} marginTop={"20px"}>
+        <Text fontFamily={"Koulen"} fontSize={"30px"} marginTop={"20px"} marginBottom={"-5px"}>
           Billing Address
         </Text>
-        <AddressElement options={{ mode: "billing" }} />
+        <AddressElement options={{ mode: "billing" }}/>
         {paymentError && (
           <div style={{ color: "red" }}>{paymentError.message}</div>
         )}
