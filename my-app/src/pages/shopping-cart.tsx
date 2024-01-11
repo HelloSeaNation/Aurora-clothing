@@ -94,9 +94,11 @@ function ShoppingCart() {
                 border={"transparent"}
                 boxShadow={"0px 4px 4px rgba(0, 0, 0, 0.25)"}
                 cursor="pointer"
+                onClick={() => {window.location.href = "#/payment"}}
+
               >
                 <Text style={subtotalStyle} backgroundColor={"#028702"}>
-                  CHECKOUT
+                  Pay {formatCurrency(Number(totalPrice))}
                 </Text>
               </Button>
               
