@@ -86,6 +86,7 @@ const PaymentForm = () => {
   const cardElementOptions = {
     hidePostalCode: true,
     style: cardStyle,
+    disableLink: true,
   };
 
   return (
