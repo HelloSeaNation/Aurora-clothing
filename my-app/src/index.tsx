@@ -6,7 +6,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const stripePromise = loadStripe('pk_live_51OXC61EaCtchjHja9d8RnzqQjUb1jlJqLlIE7mqHJ70vHhIOmOoCvBUmxY1bKbHBHVtuwFR6mE30KucRp4Q1UMVK00k52RO79d');
+const stripePromise = loadStripe('pk_test_51OXC61EaCtchjHjam6khlTmqrXcy1zsnGpkUY5OuWiKv1IhmU605Gd30KGhOcRZ6cv5ZwQEJCgrPmNoC2OMrYGUP00ufTFzbr8');
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

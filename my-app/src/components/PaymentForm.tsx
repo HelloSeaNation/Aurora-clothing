@@ -24,7 +24,7 @@ const PaymentForm = () => {
           card: cardElement,
           billing_details: {
             address:{
-              country: 'New Zealand'
+              country: 'NZ'
             }
           },
         });
@@ -59,6 +59,7 @@ const PaymentForm = () => {
   const cardElementOptions = {
     hidePostalCode: true,
     style: cardStyle,
+    disableLinks: true,
   };
 
   return (
