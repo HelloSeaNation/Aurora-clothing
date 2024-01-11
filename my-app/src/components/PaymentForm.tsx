@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { CardElement, AddressElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { StripeError } from '@stripe/stripe-js';
 
 const PaymentForm = () => {
@@ -15,12 +15,15 @@ const PaymentForm = () => {
     }
 
     const cardElement = elements.getElement(CardElement);
+    const addressElement = elements.getElement(AddressElement);
 
-    if (cardElement) {
+    if (cardElement && addressElement) {
       try {
         const { paymentMethod, error } = await stripe.createPaymentMethod({
           type: 'card',
           card: cardElement,
+          billing_details: {
+          },
         });
 
         if (error) {
@@ -33,13 +36,32 @@ const PaymentForm = () => {
         console.error('Error processing payment:', error);
       }
     } else {
-      console.error('Card Element not found');
+      console.error('Card Element or Address Element not found');
     }
+  };
+
+  const cardStyle = {
+    base: {
+      fontSize: '20px',
+      color: '#424770',
+      '::placeholder': {
+        color: '#aab7c4',
+      },
+    },
+    invalid: {
+      color: '#9e2146',
+    },
+  };
+
+  const cardElementOptions = {
+    hidePostalCode: true,
+    style: cardStyle,
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <CardElement />
+      <CardElement options={cardElementOptions} />
+      <AddressElement options={{ mode: 'billing' }} />
       {paymentError && <div style={{ color: 'red' }}>{paymentError.message}</div>}
       <button type="submit" disabled={!stripe}>
         Pay
