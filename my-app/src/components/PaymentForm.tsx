@@ -23,6 +23,9 @@ const PaymentForm = () => {
           type: 'card',
           card: cardElement,
           billing_details: {
+            address:{
+              country: 'New Zealand'
+            }
           },
         });
 
