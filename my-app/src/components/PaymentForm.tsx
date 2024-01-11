@@ -12,6 +12,7 @@ import dresses from "../hooks/dressdata.json";
 import pants from "../hooks/pants-data.json";
 import tops from "../hooks/top-data.json";
 import { formatCurrency } from "../utilities/formatCurrency";
+import { ChevronLeftIcon } from "@chakra-ui/icons";
 
 const PaymentForm = () => {
   const { cartItems, cartQuantity } = useShoppingCart();
@@ -109,16 +110,60 @@ const PaymentForm = () => {
         >
           <CardElement options={cardElementOptions} />
         </Box>
-        <Text fontFamily={"Koulen"} fontSize={"30px"} marginTop={"20px"} marginBottom={"-5px"}>
+        <Text
+          fontFamily={"Koulen"}
+          fontSize={"30px"}
+          marginTop={"20px"}
+          marginBottom={"-5px"}
+        >
           Billing Address
         </Text>
-        <AddressElement options={{ mode: "billing" }}/>
+        <AddressElement options={{ mode: "billing" }} />
         {paymentError && (
-          <div style={{ color: "red" }}>{paymentError.message}</div>
+          <Text style={{ color: "red" }}>{paymentError.message}</Text>
         )}
-        <Button type="submit" disabled={!stripe}>
-          Pay
-        </Button>
+        <Flex justifyContent={"space-between"} alignContent={"center"}>
+          <Flex flexDirection={"row"} alignItems={"center"}>
+            <ChevronLeftIcon
+              width={"40px"}
+              fontSize={"50px"}
+              marginLeft={"-10px"}
+              onClick={() => {
+                window.location.href = "#/shopping-cart";
+              }}
+              _hover={{ cursor: "pointer" }}
+            />
+            <Text
+              fontFamily={"Koulen"}
+              fontSize={"30px"}
+              onClick={() => {
+                window.location.href = "#/shopping-cart";
+              }}
+              _hover={{ cursor: "pointer", textDecoration: "underline" }}
+            >
+              Back
+            </Text>
+          </Flex>
+
+          <Button
+            type="submit"
+            disabled={!stripe}
+            width={"300px"}
+            fontSize={"30px"}
+            height={"80px"}
+            borderRadius={"15"}
+            backgroundColor={"#028702"}
+            color={"#FFFFFF"}
+            border={"transparent"}
+            boxShadow={"0px 4px 4px rgba(0, 0, 0, 0.25)"}
+            cursor="pointer"
+            marginTop={"20px"}
+            fontFamily={"Koulen"}
+            _hover={{ backgroundColor: "#007000" }}
+          >
+            Pay Now
+          </Button>
+        </Flex>
       </Box>
     </form>
   );
