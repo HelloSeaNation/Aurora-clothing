@@ -1,7 +1,7 @@
 import React from "react";
 import PaymentForm from "../components/PaymentForm";
 import { Box, Text, Flex } from "@chakra-ui/react";
-import { CartItem } from "../components/CartItem";
+import { CartItem } from "../components/CartItemForPayment";
 import { useShoppingCart } from "../context/cartFunction";
 
 const textStyles = {
@@ -30,9 +30,12 @@ const PaymentPage = () => {
         </Box>
 
         {/* Right side */}
-        <Box width={"50%"} margin={"auto"} backgroundColor={"#EDEDED"}> {cartItems.map((item) => (
-              <CartItem key={item.id} {...item} size={item.size} />
-            ))}</Box>
+        <Box width={"50%"} margin={"auto"} backgroundColor={"#EDEDED"}>
+          {"Order Summary"}
+          {cartItems.map((item) => (
+            <CartItem key={item.id} {...item} size={item.size} />
+          ))}
+        </Box>
       </Flex>
     </>
   );
