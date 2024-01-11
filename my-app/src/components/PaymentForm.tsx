@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CardElement, AddressElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { StripeError } from '@stripe/stripe-js';
+import { Box, Text, Flex, Button } from "@chakra-ui/react";
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -59,17 +60,20 @@ const PaymentForm = () => {
   const cardElementOptions = {
     hidePostalCode: true,
     style: cardStyle,
-    disableLinks: true,
+    disableLinks: false,
   };
 
   return (
     <form onSubmit={handleSubmit}>
+      <Text> Total payment</Text>
       <CardElement options={cardElementOptions} />
+      <Text> Billing Address</Text>
       <AddressElement options={{ mode: 'billing' }} />
       {paymentError && <div style={{ color: 'red' }}>{paymentError.message}</div>}
-      <button type="submit" disabled={!stripe}>
+      <Button type="submit" disabled={!stripe}>
         Pay
-      </button>
+      </Button>
+       
     </form>
   );
 };
