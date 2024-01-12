@@ -1,6 +1,6 @@
 import dresses from "../hooks/dressdata.json";
-import pant from "../hooks/pants-data.json";
-import top from "../hooks/top-data.json";
+import pants from "../hooks/pants-data.json";
+import tops from "../hooks/top-data.json";
 import { useShoppingCart } from "../context/cartFunction";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -22,6 +22,7 @@ import { ChevronRightIcon } from "@chakra-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruckField } from "@fortawesome/free-solid-svg-icons";
 import { formatCurrency } from "../utilities/formatCurrency";
+import { CartItem } from "../components/CartItem";
 
 interface Item {
   id: number;
@@ -64,8 +65,8 @@ const sizeButtons = {
 
 const findItemById = (itemId: string): Item | undefined => {
   const dressItem = dresses.find((item) => item.id.toString() === itemId);
-  const pantItem = pant.find((item) => item.id.toString() === itemId);
-  const topItem = top.find((item) => item.id.toString() === itemId);
+  const pantItem = pants.find((item) => item.id.toString() === itemId);
+  const topItem = tops.find((item) => item.id.toString() === itemId);
 
   if (dressItem) {
     return dressItem;
@@ -79,6 +80,7 @@ const findItemById = (itemId: string): Item | undefined => {
 };
 
 const IndividualItem: React.FC = () => {
+  
   const [sizeError, setSizeError] = useState(false);
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
   const handleAddToCart = (selectedSize: string | null) => {
@@ -95,7 +97,7 @@ const IndividualItem: React.FC = () => {
   const { itemId } = useParams() as { itemId: string };
   const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity } =
     useShoppingCart();
-
+    
   const [selectedSize, setSelectedSize] = useState<string | null>(() => null);
   const quantity = getItemQuantity(Number(itemId), selectedSize || "");
   const [isHovered, setIsHovered] = useState(false);
@@ -125,6 +127,7 @@ const IndividualItem: React.FC = () => {
   }
 
   const { name, price, imgUrl, hoverImage } = item;
+  const totalPrice = quantity === 0 ? price : price * quantity;
 
   const addReview = () => {
     if (newReview.trim() !== "") {
@@ -199,7 +202,7 @@ const IndividualItem: React.FC = () => {
 
           {/* render price by item.id */}
           <Box style={textStyles}>
-            <Text fontSize="20px">{formatCurrency(price)}</Text>
+            <Text fontSize="20px">{formatCurrency(totalPrice)}</Text>
 
             {/* Size options */}
             <Box
