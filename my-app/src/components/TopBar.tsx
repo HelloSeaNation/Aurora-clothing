@@ -61,7 +61,7 @@ function TopBar() {
       setShowInput(false);
   
       // Navigate to the search results page with the search input
-      navigate(`/search/${searchTerm}`);
+      navigate(`/search/${searchTerm}`); 
     }
   };
   return (

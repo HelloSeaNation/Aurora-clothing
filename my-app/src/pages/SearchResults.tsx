@@ -49,7 +49,8 @@ const boxStyle = {
   marginTop: "-25px",
 };
 
-function SearchResults({ itemName }: { itemName?: string }) {
+function SearchResults() {
+  const { itemName } = useParams();
     if (!itemName) {
       // Handle the case where itemName is not defined
       return <div>No search term provided</div>;
