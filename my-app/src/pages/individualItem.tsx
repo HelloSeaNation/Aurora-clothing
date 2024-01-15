@@ -23,7 +23,7 @@ import { ChevronRightIcon } from "@chakra-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTruckField } from "@fortawesome/free-solid-svg-icons";
 import { formatCurrency } from "../utilities/formatCurrency";
-import { CartItem } from "../components/CartItem";
+import { format } from "date-fns";
 
 interface Item {
   id: number;
@@ -40,7 +40,7 @@ const titleText = {
 
 const textStyles = {
   fontFamily: "Koulen",
-  fontSize: "13px",
+  fontSize: "15px",
 };
 
 const rightContainer = {
@@ -229,7 +229,7 @@ const IndividualItem: React.FC = () => {
           </Box>
 
           {/* render price by item.id */}
-          <Box style={textStyles}>
+          <Box fontFamily={"Koulen"}>
             <Text fontSize="20px">{formatCurrency(totalPrice)}</Text>
 
             {/* Size options */}
@@ -339,7 +339,6 @@ const IndividualItem: React.FC = () => {
             </Box>
             {/* Shipping information */}
             <Box
-              style={textStyles}
               display="flex"
               flexDirection="column"
               alignItems="center"
@@ -378,7 +377,12 @@ const IndividualItem: React.FC = () => {
           ------------------------------------
         </Text>
       </Box>
-      <Box display="flex" justifyContent={"center"}>
+      <Box
+        display="flex"
+        justifyContent={"center"}
+        flexDirection={"column"}
+        alignItems={"center"}
+      >
         <Box>
           <Button
             onClick={onOpenReview}
@@ -470,20 +474,19 @@ const IndividualItem: React.FC = () => {
               </ModalBody>
             </ModalContent>
           </Modal>
-
-          {/* display review by id */}
-          {reviews[itemId] && reviews[itemId].length > 0 && (
-            <Box marginTop="20px">
-              <Divider />
-              <label style={textStyles}>All Reviews</label>
-              {reviews[itemId].map((review, index) => (
-                <Text key={index} fontFamily={"Arial"} fontSize={"13px"}>
-                  {review}
-                </Text>
-              ))}
-            </Box>
-          )}
         </Box>
+        {/* display review by id */}
+        {reviews[itemId] && reviews[itemId].length > 0 && (
+          <Box marginTop="20px">
+            <Divider />
+            <label style={textStyles}>All Reviews</label>
+            {reviews[itemId].map((review, index) => (
+              <Text key={index} fontFamily={"Arial"} fontSize={"13px"}>
+                {review} - {format(new Date(), "dd MMMM yyyy")}
+              </Text>
+            ))}
+          </Box>
+        )}
       </Box>
     </>
   );
