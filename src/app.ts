@@ -1,6 +1,7 @@
 import Express from "express";
 import path from "path";
 import fs from "fs/promises";
+import nodemailer from "nodemailer";
 
 const app = Express();
 
@@ -51,6 +52,43 @@ app.get("/api/reviews/:itemId", async (req, res) => {
 
         // Return reviews for the specified item
         res.status(200).json({ success: true, reviews: reviews[itemId] || [] });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: "Internal Server Error." });
+    }
+});
+
+// Endpoint for sending contact form submissions via email
+app.post("/api/contact-us", async (req, res) => {
+    try {
+        const { name, email, questionType, message } = req.body;
+
+        // Set up the Nodemailer transporter
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'your-email@gmail.com',
+                pass: 'your-email-password',
+            },
+        });
+
+        // Set up email content
+        const mailOptions = {
+            from: 'your-email@gmail.com',
+            to: 'your-destination-email@example.com',
+            subject: 'New Contact Us Message',
+            text: `
+                Name: ${name}
+                Email: ${email}
+                Question Type: ${questionType}
+                Message: ${message}
+            `,
+        };
+
+        // Send email
+        await transporter.sendMail(mailOptions);
+
+        res.status(200).json({ success: true, message: "Email sent successfully." });
     } catch (error) {
         console.error(error);
         res.status(500).json({ success: false, message: "Internal Server Error." });
