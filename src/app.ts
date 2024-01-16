@@ -67,16 +67,16 @@ app.post("/api/contact-us", async (req, res) => {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'your-email@gmail.com',
-                pass: 'your-email-password',
+                user: 'wendywooden14@gmail.com',
+                pass: 'glpv fhto zrng fogn',
             },
         });
 
         // Set up email content
         const mailOptions = {
-            from: 'your-email@gmail.com',
-            to: 'your-destination-email@example.com',
-            subject: 'New Contact Us Message',
+            from: 'wendywooden14@gmail.com',
+            to: 'wendywooden14+@gmail.com',
+            subject: 'Customer Message from Aurora Shop',
             text: `
                 Name: ${name}
                 Email: ${email}
