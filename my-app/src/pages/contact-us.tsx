@@ -5,6 +5,14 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalCloseButton,
+  ModalBody,
+  ModalHeader,
+  Button,
+  Flex,
 } from "@chakra-ui/react";
 import React, { useState, useRef } from "react";
 import Map from "../components/Map";
@@ -41,13 +49,15 @@ export const ContactUs = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLInputElement>(null);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEmailSent, setIsEmailSent] = useState(false);
+
   const handleSendClick = async () => {
     // Gather user input data using refs
     const name = nameRef.current?.value || "";
     const email = emailRef.current?.value || "";
     const questionType = selectedOption;
     const message = messageRef.current?.value || "";
-
     // Make a POST request to the backend API
     try {
       const response = await fetch("/api/contact-us", {
@@ -62,6 +72,8 @@ export const ContactUs = () => {
 
       if (data.success) {
         // Handle success (e.g., show a success message to the user)
+        setIsEmailSent(true);
+        setIsModalOpen(true);
         console.log("Email sent successfully");
       } else {
         // Handle failure (e.g., show an error message to the user)
@@ -72,8 +84,72 @@ export const ContactUs = () => {
     }
   };
 
+  const handleCloseModal = () => {
+    // Reset states for the next interaction
+    setIsModalOpen(false);
+    setIsEmailSent(false);
+  };
+
   return (
     <Box style={textStyles}>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        isCentered
+        size={{ width: "600px", height: "400px" }}
+      >
+        <ModalOverlay backgroundColor="rgba(0, 0, 0, 0.5)" />
+        <ModalContent
+          textAlign="center"
+          position={"relative"}
+          top={"200px"}
+          left={"25%"}
+          backgroundColor="white"
+          borderRadius="20px"
+          width="50%"
+          height="230px"
+          fontFamily={"Koulen"}
+        >
+          <ModalHeader fontSize={"25px"} paddingTop={"20px"}>Thank you</ModalHeader>
+          <ModalCloseButton
+            style={{
+              width: "23px",
+              height: "23px",
+              color: "white",
+              backgroundColor: "#E8BCBC",
+              border: "none",
+              borderRadius: "5px",
+              top: "10px",
+              right: "15px",
+              position: "absolute",
+            }}
+          />
+
+          <ModalBody fontSize={"20px"} marginTop={"20px"} marginBottom={"20px"}>
+            Your question has been sent successfully. We will contacting you
+            within 24 hours.
+          </ModalBody>
+          <Box width={"100%"}>
+            <Box
+              as="button"
+              onClick={handleCloseModal}
+              style={{
+                backgroundColor: "#E8BCBC",
+                color: "white",
+                border: "0",
+                padding: "10px 30px",
+                fontSize: "20px",
+                boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
+                borderRadius: "10px",
+                fontFamily: "Koulen",
+                cursor: "pointer",
+              }}
+            >
+              Close
+            </Box>
+          </Box>
+        </ModalContent>
+      </Modal>
       <Box textAlign="center">
         <h1>Contact Us</h1>
       </Box>
@@ -146,7 +222,6 @@ export const ContactUs = () => {
           ref={messageRef}
           style={{ ...inputStyle, height: "125px" }}
         ></Input>
-
         <Box
           as="button"
           onClick={handleSendClick}
