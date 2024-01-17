@@ -9,18 +9,9 @@ import {
   import HoverImage from "../components/HoverImage";
   import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
   import {faStar,} from "@fortawesome/free-solid-svg-icons";
-  import tops from "../hooks/top-data.json"
   import { Link } from "react-router-dom";
   import { formatCurrency } from "../utilities/formatCurrency";
   import { useWishlist } from '../components/WishlistContext'
-
-  interface WishlistItem {
-    id: number;
-    name: string;
-    price: number;
-    imgUrl: string;
-    hoverImage: string;
-  }
 
   const textStyles = {
     fontFamily: "Koulen",
